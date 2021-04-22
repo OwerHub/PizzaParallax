@@ -1,0 +1,26 @@
+.flexCenter{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	
+
+}
+
+.pizzaPic{
+	height: 100vh;
+	background-color: red;
+
+	.name{
+		font-size: 350%;
+	}
+}
+
+.introduction{
+	height:100vh;
+	background-color: green;
+}
+
+.test{
+	transform: translateX();
+}
