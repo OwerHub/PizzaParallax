@@ -1,26 +1,53 @@
+/* általános style-ok */
+
 .flexCenter{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	
-
 }
+
+.marginCenter{
+	margin-left: auto;
+	margin-right: auto;
+	background-color: yellow;	
+}
+
+
+/* első képernyő */
 
 .pizzaPic{
 	height: 100vh;
 	background-color: red;
 
-	.name{
-		font-size: 350%;
+	.nameContainer{
+		position: fixed;
+	/* 	background-color: royalblue; */
+		height: 100vh;
+		width: 100vw;
+
+		span{
+			font-size: 350%;
+		}
 	}
 }
+
+/* második képernyő */
 
 .introduction{
 	height:100vh;
 	background-color: green;
 }
+.descriptionContainer{
+	position: fixed;
+	top: 0px;
 
-.test{
-	transform: translateX();
+	height: 100vh;
+	width: 99vw;
+
+
+
+	
+	p{
+		width: 50%;
+	}
 }

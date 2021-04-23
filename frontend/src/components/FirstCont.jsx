@@ -22,16 +22,12 @@ function FirstCont() {
     }`
   );
 
-  let styleName = {
-    position: "fixed",
-    top: `${window.innerHeight / 2}px`,
+  let nameConteinerStyle = {
+    /* top: `${window.innerHeight / 2}px`, */
     transform: `translateX(${(offset / window.innerHeight) * window.innerWidth}px)`,
   };
 
   let styleIntroText = {
-    position: "fixed",
-    top: `${window.innerHeight / 2}px`,
-    width: "30%",
     transform: `translateX(${
       -1 * window.innerWidth + (offset / window.innerHeight) * window.innerWidth
     }px)`,
@@ -40,13 +36,14 @@ function FirstCont() {
   return (
     <div>
       <div className="pizzaPic flexCenter">
-        <div className="name" style={styleName}>
-          Family Pizzeria
+        <div className="nameContainer flexCenter" style={nameConteinerStyle}>
+          <span>Family Pizzeria</span>
         </div>
       </div>
+
       <div className="introduction">
-        <div className="introText">
-          <p style={styleIntroText}>
+        <div className="descriptionContainer flexCenter" style={styleIntroText}>
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, laudantium
             accusantium? Inventore fuga natus itaque optio incidunt voluptate ut,
             soluta minima assumenda officia, molestiae ducimus quam? Reiciendis
@@ -56,6 +53,8 @@ function FirstCont() {
           </p>
         </div>
       </div>
+
+      <div className="pizzas"></div>
     </div>
   );
 }
