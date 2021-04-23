@@ -1,0 +1,35 @@
+OK - cím oldalról úszik be 
+OK - felirat oldalról úszik be
+
+fetchet kiszervezni? átadni neki a kellő stateket.
+
+
+- színeket kitalálni 
+
+- keresni egy jó hátérképet
+- jó betűtípus a címhez 
+- animált svg megjelenés, (a végén glow-al a címhez)
+		megnézni egy animált SVG tutorialt
+- keresni jó betűtípust
+
+- megcsinálni a backendet a pizzákhoz 
+- lefetchelni a pizzákat
+- írni pizzákat a kártyákhoz 
+- kirendereltetni a kártyákat a haramadik szegmensbe
+- animállni a kártyákat a scroll-ra 
+
+- kersni asztalokat és székeket SVG-ben
+- adatbázist írni a foglalásokról
+	- dátum és idő alapján kell keresni (naptár és idő)
+	- nézni valami fílinges , de egyértelmű naptár és időbevitelt
+- post, keres dátum+idő alapján, visszadja a foglalt asztalok számait
+- viualizálja, mikor foglalatak az asztalok 
+
+- szabad időpont esetén klikkelhet az asztalra
+- klikkelés esetén beugrik egy form
+- validálás
+- elküldés, mentés adatbázisba, visszajelzés, újrafetchelés
+
+--esetleg: 
+- lefelé görgetésnél forogjon két pizza
+- betöltéskor pizza animáció

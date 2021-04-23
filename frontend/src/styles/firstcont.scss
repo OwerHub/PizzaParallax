@@ -17,7 +17,11 @@
 
 .pizzaPic{
 	height: 100vh;
-	background-color: red;
+	background-image: url("tempBG.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background-color: purple;	 */
+/* 	background-color: red; */
 
 	.nameContainer{
 		position: fixed;
@@ -26,7 +30,9 @@
 		width: 100vw;
 
 		span{
-			font-size: 350%;
+			font-size: 550%;
+			color: white;
+			text-shadow: 0px 0px 10px black;
 		}
 	}
 }

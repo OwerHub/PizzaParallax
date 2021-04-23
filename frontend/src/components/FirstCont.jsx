@@ -1,6 +1,8 @@
 import "../styles/dist/firstcont.css";
 import React, { useState, useEffect } from "react";
 
+import { welcomeText } from "../temp/tempdatas";
+
 function FirstCont() {
   const [offset, setOffset] = useState(0);
 
@@ -43,14 +45,7 @@ function FirstCont() {
 
       <div className="introduction">
         <div className="descriptionContainer flexCenter" style={styleIntroText}>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, laudantium
-            accusantium? Inventore fuga natus itaque optio incidunt voluptate ut,
-            soluta minima assumenda officia, molestiae ducimus quam? Reiciendis
-            velit, quis, nobis similique non ea enim ab saepe deserunt fugit,
-            aspernatur id veniam error aliquam. Pariatur quo omnis temporibus,
-            impedit amet facere.
-          </p>
+          <p>{welcomeText}</p>
         </div>
       </div>
 
