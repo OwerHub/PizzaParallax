@@ -1,7 +1,8 @@
 import "../styles/dist/firstcont.css";
 import React, { useState, useEffect } from "react";
 
-import { welcomeText } from "../temp/tempdatas";
+import PageOpen from "./Page1Open";
+import PageIntro from "./Page2Introduct";
 
 function FirstCont() {
   const [offset, setOffset] = useState(0);
@@ -16,38 +17,17 @@ function FirstCont() {
     };
   }, []);
 
-  let screenHeight = window.innerHeight;
-
-  console.log(
+  /*   console.log(
     `height: ${window.innerHeight} , offset = ${offset}  elosztás= ${
       offset / window.innerHeight
     }`
-  );
-
-  let nameConteinerStyle = {
-    /* top: `${window.innerHeight / 2}px`, */
-    transform: `translateX(${(offset / window.innerHeight) * window.innerWidth}px)`,
-  };
-
-  let styleIntroText = {
-    transform: `translateX(${
-      -1 * window.innerWidth + (offset / window.innerHeight) * window.innerWidth
-    }px)`,
-  };
+  ); */
 
   return (
     <div>
-      <div className="pizzaPic flexCenter">
-        <div className="nameContainer flexCenter" style={nameConteinerStyle}>
-          <span>Family Pizzeria</span>
-        </div>
-      </div>
+      <PageOpen offset={offset}></PageOpen>
 
-      <div className="introduction">
-        <div className="descriptionContainer flexCenter" style={styleIntroText}>
-          <p>{welcomeText}</p>
-        </div>
-      </div>
+      <PageIntro offset={offset}></PageIntro>
 
       <div className="pizzas"></div>
     </div>
