@@ -9,7 +9,17 @@ function pageOpen(props) {
 
   let nameConteinerStyle = {
     /* top: `${window.innerHeight / 2}px`, */
-    transform: `translate(${move}px , ${-0.3 * move}px)`,
+    /* transform: `translate(${move}px , ${-0.3 * move}px)`, */
+    transform: `scale(${parallaxPercent(
+      props.offset,
+      minScroll,
+      window.innerHeight / 2,
+      1,
+      25
+    )})`,
+    opacity: `${
+      parallaxPercent(props.offset, minScroll, window.innerHeight / 2, 100, 0) / 100
+    }`,
   };
 
   return (

@@ -9,7 +9,7 @@ function parallaxpercent(scrollPos, minScroll, maxScroll, minValue, maxValue) {
   } else if (scrollPos > maxScroll) {
     return maxValue;
   } else {
-    return Math.round(value);
+    return value;
   }
 }
 
