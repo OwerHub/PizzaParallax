@@ -5,6 +5,8 @@ import PageOpen from "./Page1Open";
 import PageIntro from "./Page2Introduct";
 import PizzaList from "./Page3PizzaList";
 
+import parallaxPercent from "../utils/parallaxPercent";
+
 function FirstCont() {
   const [offset, setOffset] = useState(0);
 
@@ -23,6 +25,30 @@ function FirstCont() {
       offset / window.innerHeight
     }`
   ); */
+  /* 
+  let minScroll = 1;
+  let maxScroll = 860;
+  let minValue = 0;
+  let maxValue = -200; */
+
+  /*   let a = parallaxPercent(
+    Math.round(offset),
+    minScroll,
+    maxScroll,
+    minValue,
+    maxValue
+  ); */
+
+  /*   let log = {
+    offset: Math.round(offset),
+    solution: a,
+    minScroll: minScroll,
+    maxScroll: maxScroll,
+    minValue: minValue,
+    maxValue: maxValue,
+  };
+
+  console.table(log); */
 
   return (
     <div>
