@@ -17,15 +17,24 @@ function pageOpen(props) {
       1,
       25
     )})`,
+
     opacity: `${
       parallaxPercent(props.offset, minScroll, window.innerHeight / 2, 100, 0) / 100
     }`,
+
+    filter: `blur(${parallaxPercent(
+      props.offset,
+      minScroll,
+      window.innerHeight / 2,
+      0,
+      10
+    )}px)`,
   };
 
   return (
     <div className="pizzaPic flexCenter">
       <div className="nameContainer flexCenter" style={nameConteinerStyle}>
-        <span>Family Pizzeria</span>
+        <span>Neta - Pizza </span>
       </div>
     </div>
   );

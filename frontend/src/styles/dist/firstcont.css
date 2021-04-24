@@ -35,8 +35,9 @@
 
 /* második képernyő */
 .introduction {
-  height: 100vh;
-  background-color: green;
+  height: 120vh;
+  background-color: #161616;
+  color: whitesmoke;
 }
 
 .descriptionContainer {
