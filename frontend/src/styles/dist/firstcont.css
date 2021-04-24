@@ -48,3 +48,19 @@
 .descriptionContainer p {
   width: 50%;
 }
+
+/* harmadik képernyő */
+.pizzaListContainer {
+  padding: 10px;
+  background-color: lightseagreen;
+}
+.pizzaListContainer .pizzaCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pizzaCardContainer {
+  background-color: whitesmoke;
+  margin: 10px;
+  border-radius: 4px;
+}

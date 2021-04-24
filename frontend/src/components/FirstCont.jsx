@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 
 import PageOpen from "./Page1Open";
 import PageIntro from "./Page2Introduct";
+import PizzaList from "./Page3PizzaList";
 
 function FirstCont() {
   const [offset, setOffset] = useState(0);
@@ -28,6 +29,8 @@ function FirstCont() {
       <PageOpen offset={offset}></PageOpen>
 
       <PageIntro offset={offset}></PageIntro>
+
+      <PizzaList></PizzaList>
 
       <div className="pizzas"></div>
     </div>
