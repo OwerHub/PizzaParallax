@@ -1,9 +1,15 @@
+import parallaxPercent from "../utils/parallaxPercent";
+
 function pageOpen(props) {
+  let minScroll = 1;
+  let maxScroll = window.innerHeight;
+  let minValue = 0;
+  let maxValue = window.innerWidth;
+  let move = parallaxPercent(props.offset, minScroll, maxScroll, minValue, maxValue);
+
   let nameConteinerStyle = {
     /* top: `${window.innerHeight / 2}px`, */
-    transform: `translateX(${
-      (props.offset / window.innerHeight) * window.innerWidth
-    }px)`,
+    transform: `translate(${move}px , ${-0.3 * move}px)`,
   };
 
   return (
