@@ -1,10 +1,10 @@
-import FirstCont from "./components/FirstCont";
+import MainCont from "./components/MainCont";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <FirstCont></FirstCont>
+      <MainCont></MainCont>
     </div>
   );
 }

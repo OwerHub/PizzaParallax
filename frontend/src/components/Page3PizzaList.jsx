@@ -4,7 +4,7 @@ import PizzaCard from "./PizzaCard";
 function PizzaList(props) {
   return (
     <div className="pizzaListContainer">
-      <div className="pizzaListHead"></div>
+      <div className="pizzaListHead">a</div>
       <div className="pizzaCards">
         {pizzaList.map((data, iterator) => (
           <PizzaCard key={iterator} data={data}></PizzaCard>

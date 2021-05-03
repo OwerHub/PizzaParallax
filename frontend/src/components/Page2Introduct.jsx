@@ -25,13 +25,13 @@ function PageIntro(props) {
       window.innerHeight * 1.1,
       window.innerHeight * 1.5,
       0,
-      window.innerWidth
+      0
     )}px , ${parallaxPercent(
       props.offset,
       window.innerHeight * 1.1,
-      window.innerHeight * 1.7,
+      window.innerHeight * 2.5,
       0,
-      window.innerWidth * -0.5
+      window.innerHeight * -1
     )}px ) `,
 
     opacity: `${

@@ -1,4 +1,5 @@
 import parallaxPercent from "../utils/parallaxPercent";
+import SvgHead from "./AnimateText";
 
 function pageOpen(props) {
   let minScroll = 1;
@@ -31,10 +32,13 @@ function pageOpen(props) {
     )}px)`,
   };
 
+  let coverBlackStyle = {};
+
   return (
     <div className="pizzaPic flexCenter">
       <div className="nameContainer flexCenter" style={nameConteinerStyle}>
-        <span>Neta - Pizza </span>
+        <span>Neta - Pizza </span>z`
+        {/*   <SvgHead></SvgHead> */}
       </div>
     </div>
   );
