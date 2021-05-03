@@ -32,12 +32,21 @@ function pageOpen(props) {
     )}px)`,
   };
 
-  let coverBlackStyle = {};
+  let pizzaStyle = {
+    transform: `translateY(${parallaxPercent(
+      props.offset,
+      minScroll,
+      window.innerHeight,
+      0,
+      window.innerHeight * -0.4
+    )}px)`,
+  };
 
   return (
-    <div className="pizzaPic flexCenter">
+    <div className="backgroundPic flexCenter">
+      <div className="pizzaPic" style={pizzaStyle}></div>
       <div className="nameContainer flexCenter" style={nameConteinerStyle}>
-        <span>Neta - Pizza </span>z`
+        <span>Neta - Pizza </span>
         {/*   <SvgHead></SvgHead> */}
       </div>
     </div>

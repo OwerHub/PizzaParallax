@@ -1,4 +1,4 @@
-import "../styles/dist/firstcont.css";
+import "../styles/mainCont.css";
 import React, { useState, useEffect } from "react";
 
 import PageOpen from "./Page1Open";

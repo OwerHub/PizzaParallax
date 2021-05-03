@@ -6,10 +6,10 @@ function PizzaCard(props) {
     })
   );
 
-  let readNote = document.querySelector(".pizzaCardContainer");
+  /*  let readNote = document.querySelector(".pizzaCardContainer");
   console.log(`key: ${props.data.name}`);
   console.log(readNote.offsetTop);
-
+ */
   return (
     <div className="pizzaCardContainer">
       <div className="pizzaName">{props.data.name}</div>
