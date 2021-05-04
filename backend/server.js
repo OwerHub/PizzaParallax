@@ -5,8 +5,14 @@ const PORT = 8000;
 app.use(cors());
 app.use(express.json());
 
+let pizzaList = require("./datapack/pizzaList.json");
+
 app.get("/ping", function (req, res) {
   res.send("pong");
+});
+
+app.get("/pizzalist", function (req, res) {
+  res.send(pizzaList);
 });
 
 app.listen(PORT, function () {
