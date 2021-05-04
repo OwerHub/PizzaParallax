@@ -20,18 +20,12 @@ function PageIntro(props) {
       25,
       1
     )})
-    translate(${parallaxPercent(
+    translate(${parallaxPercent(props.offset, 0, 0, 0, 0)}px , ${parallaxPercent(
       props.offset,
-      window.innerHeight * 1.1,
-      window.innerHeight * 1.5,
+      window.innerHeight * 1.0,
+      window.innerHeight * 2.0,
       0,
-      0
-    )}px , ${parallaxPercent(
-      props.offset,
-      window.innerHeight * 1.1,
-      window.innerHeight * 2.5,
-      0,
-      window.innerHeight * -1
+      window.innerHeight * 1
     )}px ) `,
 
     opacity: `${

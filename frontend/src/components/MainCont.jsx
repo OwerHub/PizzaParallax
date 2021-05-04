@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import PageOpen from "./Page1Open";
 import PageIntro from "./Page2Introduct";
 import PizzaList from "./Page3PizzaList";
+import Tables from "./Page4TableBook";
 
 import parallaxPercent from "../utils/parallaxPercent";
 
@@ -49,6 +50,9 @@ function FirstCont() {
   };
 
   console.table(log); */
+  /* 
+  console.log(`offset =${offset}`);
+  console.log(`offset / window.innerheight : ${offset / window.innerHeight}`); */
 
   return (
     <div>
@@ -57,6 +61,8 @@ function FirstCont() {
       <PageIntro offset={offset}></PageIntro>
 
       <PizzaList></PizzaList>
+
+      <Tables offset={offset}></Tables>
 
       <div className="pizzas"></div>
     </div>

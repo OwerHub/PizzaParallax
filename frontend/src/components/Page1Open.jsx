@@ -16,7 +16,7 @@ function pageOpen(props) {
       minScroll,
       window.innerHeight / 2,
       1,
-      25
+      10
     )})`,
 
     opacity: `${
@@ -28,9 +28,11 @@ function pageOpen(props) {
       minScroll,
       window.innerHeight / 2,
       0,
-      10
+      8
     )}px)`,
   };
+
+  /* let try = parallaxPercent(porps.offset, innerHeight * 0.4, maxScroll, 0, 100); */
 
   let pizzaStyle = {
     transform: `translateY(${parallaxPercent(
@@ -38,12 +40,25 @@ function pageOpen(props) {
       minScroll,
       window.innerHeight,
       0,
-      window.innerHeight * -0.4
+      window.innerHeight * 0.2
     )}px)`,
+  };
+
+  let bgStyle = {
+    backgroundColor: `rgba(0,0,0,${
+      parallaxPercent(
+        props.offset,
+        window.innerHeight * 0.4,
+        maxScroll * 0.8,
+        0,
+        100
+      ) / 100
+    })`,
   };
 
   return (
     <div className="backgroundPic flexCenter">
+      <div className="mainBgColor" style={bgStyle}></div>
       <div className="pizzaPic" style={pizzaStyle}></div>
       <div className="nameContainer flexCenter" style={nameConteinerStyle}>
         <span>Neta - Pizza </span>

@@ -23,6 +23,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  overflow: hidden;
+}
+.backgroundPic .mainBgColor {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
 }
 .backgroundPic .pizzaPic {
   height: 100vh;
@@ -32,7 +38,7 @@ body {
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 2;
+  z-index: 3;
   top: 0;
 }
 .backgroundPic .nameContainer {
@@ -50,17 +56,18 @@ body {
 
 /* második képernyő */
 .introduction {
-  z-index: 4;
-  min-height: 110vh;
+  height: 100vh;
   background-color: #161616;
   color: whitesmoke;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .descriptionContainer {
   position: absolute;
-  top: 0px;
-  height: 100vh;
   width: 99vw;
 }
 .descriptionContainer p {
@@ -85,4 +92,23 @@ body {
 
 .modify {
   background-color: green;
+}
+
+/* negyedik képernyő */
+.tableBookContainer {
+  min-height: 100vh;
+  background-color: red;
+  padding-top: 1rem;
+}
+.tableBookContainer .tablesContainer {
+  color: blue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tableBookContainer .tablesContainer .tryblock {
+  height: 30vh;
+  width: 30vw;
+  background-color: green;
+  margin: 10px;
 }
