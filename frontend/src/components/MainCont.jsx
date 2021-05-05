@@ -9,6 +9,10 @@ import Tables from "./Page4TableBook";
 import parallaxPercent from "../utils/parallaxPercent";
 
 function FirstCont() {
+  // fakebackend - olyan bemutatófelületeken, ahol nem tudunk server-t indítani, helyi adathalmazt kap
+  // false - adatok backendről , true -  adatok utils/-ból
+  let fakeBackend = false;
+
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -21,48 +25,15 @@ function FirstCont() {
     };
   }, []);
 
-  /*   console.log(
-    `height: ${window.innerHeight} , offset = ${offset}  elosztás= ${
-      offset / window.innerHeight
-    }`
-  ); */
-  /* 
-  let minScroll = 1;
-  let maxScroll = 860;
-  let minValue = 0;
-  let maxValue = -200; */
-
-  /*   let a = parallaxPercent(
-    Math.round(offset),
-    minScroll,
-    maxScroll,
-    minValue,
-    maxValue
-  ); */
-
-  /*   let log = {
-    offset: Math.round(offset),
-    solution: a,
-    minScroll: minScroll,
-    maxScroll: maxScroll,
-    minValue: minValue,
-    maxValue: maxValue,
-  };
-
-  console.table(log); */
-  /* 
-  console.log(`offset =${offset}`);
-  console.log(`offset / window.innerheight : ${offset / window.innerHeight}`); */
-
   return (
     <div>
-      <PageOpen offset={offset}></PageOpen>
+      <PageOpen offset={offset} fakeBackend={fakeBackend}></PageOpen>
 
-      <PageIntro offset={offset}></PageIntro>
+      <PageIntro offset={offset} fakeBackend={fakeBackend}></PageIntro>
 
-      <PizzaList></PizzaList>
+      <PizzaList fakeBackend={fakeBackend}></PizzaList>
 
-      <Tables offset={offset}></Tables>
+      <Tables offset={offset} fakeBackend={fakeBackend}></Tables>
 
       <div className="pizzas"></div>
     </div>
