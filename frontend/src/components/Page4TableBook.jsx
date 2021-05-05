@@ -47,7 +47,7 @@ function TableBook(props) {
       .then((res) => setTableAvilable(res));
   }
 
-  console.log(isTableAvilable);
+  /*   console.log(isTableAvilable); */
 
   return (
     <div className="tableBookContainer">
@@ -84,11 +84,11 @@ function TableBook(props) {
       </div>
 
       <div className="tablesContainer">
-        <TableDraws tableNr={1} avilable={isTableAvilable}></TableDraws>
-        <TableDraws tableNr={2} avilable={isTableAvilable}></TableDraws>
-        <TableDraws tableNr={3} avilable={isTableAvilable}></TableDraws>
-        <TableDraws tableNr={4} avilable={isTableAvilable}></TableDraws>
-        <TableDraws tableNr={5} avilable={isTableAvilable}></TableDraws>
+        <TableDraws key={1} tableNr={1} avilable={isTableAvilable}></TableDraws>
+        <TableDraws key={2} tableNr={2} avilable={isTableAvilable}></TableDraws>
+        <TableDraws key={3} tableNr={3} avilable={isTableAvilable}></TableDraws>
+        <TableDraws key={4} tableNr={4} avilable={isTableAvilable}></TableDraws>
+        <TableDraws key={5} tableNr={5} avilable={isTableAvilable}></TableDraws>
       </div>
     </div>
   );

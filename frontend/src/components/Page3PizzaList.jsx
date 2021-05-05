@@ -7,7 +7,7 @@ function PizzaList(props) {
   const [isLoading, setLoading] = useState(false);
 
   function fetchPizza() {
-    console.log("fetchPizzaFunc On ");
+    /* console.log("fetchPizzaFunc On "); */
     let url = "http://localhost:8000/pizzalist";
 
     fetch(url)

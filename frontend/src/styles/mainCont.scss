@@ -117,15 +117,15 @@ body{
 	background-color: green;
 }
 
-/* negyedik képernyő */
+/* negyedik képernyő  asztalok*/
 
 .tableBookContainer {
 	min-height: 100vh;
-	background-color: red;
+	background-color: rgb(22, 22, 22);
 	
 	padding-top: 1rem;
 	.tablesContainer{
-		color: blue;
+		color: whitesmoke;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -138,4 +138,19 @@ body{
 	}
 
 	
+}
+
+.tabDiv{
+
+	.svgContainer{
+		border: 3px solid rgba($color: #fff, $alpha: .3);
+		border-radius: 1rem;
+		
+		
+		margin:1rem;
+		svg{
+			width: 350px;
+			margin: 10px;
+		}
+	}
 }
