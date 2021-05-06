@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import TableDraws from "./TableDraws";
-import OrderCarousel from "./OrderCarousel";
+import OrderModal from "./OrderModal";
 
 function TableBook(props) {
   const [isTableAvilable, setTableAvilable] = useState("11111");
   const [isSelectTable, setSelectTable] = useState(0);
   const [isCarousel, setCarousel] = useState(false);
+  const [isDate, setDate] = useState(0);
 
   // itt állítsd be a nyitást és az zárást
   let open = 16;
@@ -28,8 +29,6 @@ function TableBook(props) {
   // szabad asztalok ellenőrzése
 
   function collectData() {
-    console.log("in CollectData");
-
     let sendArray = [];
     let dateValue = document.querySelector("#dateInput").value;
     let startValue = document.querySelector("#startTimeSelect").value;
@@ -41,6 +40,7 @@ function TableBook(props) {
       sendArray.push(`${dateValue}-${index}`);
     }
 
+    setDate(sendArray);
     fetch("http://localhost:8000/tableCheck", {
       method: "POST",
       mode: "cors",
@@ -52,9 +52,9 @@ function TableBook(props) {
   }
 
   // Asztal kiválasztása, carousel behívása
-  console.log(`isSeclect: ${isSelectTable}`);
 
   useEffect(() => {
+    console.log(`isSeclect: ${isSelectTable}`);
     if (isSelectTable !== 0) {
       setCarousel(true);
     }
@@ -110,11 +110,12 @@ function TableBook(props) {
       </div>
 
       {isCarousel && (
-        <OrderCarousel
+        <OrderModal
           close={() => setCarousel(false)}
           table={isSelectTable}
           setTable={() => setSelectTable(0)}
-        ></OrderCarousel>
+          date={isDate}
+        ></OrderModal>
       )}
     </div>
   );

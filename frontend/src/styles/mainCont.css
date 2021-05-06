@@ -128,11 +128,19 @@ body {
 }
 
 /* 	Megrendelőlap */
-.CarouselOut {
+.modalOut {
   position: fixed;
-  background-color: red;
+  background-color: turquoise;
   height: 80vh;
   width: 80vw;
   top: 10vh;
   left: 10vw;
+}
+.modalOut .modalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modalOut .modalForm input {
+  width: 30%;
 }
