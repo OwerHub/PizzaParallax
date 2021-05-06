@@ -139,18 +139,34 @@ body{
 
 	
 }
+// TableDraws
 
-.tabDiv{
+
 
 	.svgContainer{
-		border: 3px solid rgba($color: #fff, $alpha: .3);
-		border-radius: 1rem;
+		border-radius: 2rem;
+		box-shadow: 1px 1px 5px #5b5b5b, -1px -1px 5px #000, inset 1px 1px 5px #5b5b5b, inset -1px -1px 5px #000;
 		
 		
 		margin:1rem;
+		
 		svg{
+			
 			width: 350px;
-			margin: 10px;
+			margin: 15px;
 		}
 	}
+
+.tryred{
+	background-color: red;
 }
+
+	.tableAvilable{
+		&:hover{
+			background-color: lightcoral;
+		}
+	}
+
+	.tableNotAvilable{
+	
+	}

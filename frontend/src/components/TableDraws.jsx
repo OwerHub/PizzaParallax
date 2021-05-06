@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 function TableDraws(props) {
-  /*  function bgAvilable() {
-    if (props.avilable[props.tableNr - 1] === "0") {
-      return "red";
-    } else {
-      return "green";
-    }
-  } */
-
   function avilableCHeck() {
     if (props.avilable[props.tableNr - 1] === "0") {
       return false;
@@ -17,20 +9,33 @@ function TableDraws(props) {
     }
   }
 
+  function cantSelectIt() {
+    console.log("U cant Touch THis");
+  }
+
   function clickNumber() {
-    props.setTableNr(props.tableNr);
-    console.log("clicked");
+    avilableCHeck() ? props.setTableNr(props.tableNr) : cantSelectIt();
   }
 
   const avilableStyle = {
     cursor: "pointer",
+    ":hover": {
+      background: "#efefef",
+    },
   };
 
   const notAvilableStyle = {};
 
   return (
-    <div className="tabDiv" onClick={() => clickNumber()}>
-      <div className="svgContainer">
+    <div
+      onClick={() => clickNumber()}
+      style={avilableCHeck() ? avilableStyle : notAvilableStyle}
+    >
+      <div
+        className={`svgContainer ${
+          avilableCHeck() ? "tableAvilable" : "tableNotAvilable"
+        } `}
+      >
         <h4>Table {props.tableNr}</h4>
         <svg
           id="table"
