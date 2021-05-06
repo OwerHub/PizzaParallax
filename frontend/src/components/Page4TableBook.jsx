@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import TableDraws from "./TableDraws";
+import OrderCarousel from "./OrderCarousel";
 
 function TableBook(props) {
   const [isTableAvilable, setTableAvilable] = useState("11111");
   const [isSelectTable, setSelectTable] = useState(0);
+  const [isCarousel, setCarousel] = useState(false);
 
   // itt állítsd be a nyitást és az zárást
   let open = 16;
@@ -36,7 +38,6 @@ function TableBook(props) {
     console.log(endValue);
 
     for (let index = startValue; index <= endValue; index++) {
-      /*       console.log(`${dateValue}-${index}`); */
       sendArray.push(`${dateValue}-${index}`);
     }
 
@@ -50,10 +51,14 @@ function TableBook(props) {
       .then((res) => setTableAvilable(res));
   }
 
-  /*   console.log(isTableAvilable); */
-
-  // Asztal kiválasztása
+  // Asztal kiválasztása, carousel behívása
   console.log(`isSeclect: ${isSelectTable}`);
+
+  useEffect(() => {
+    if (isSelectTable !== 0) {
+      setCarousel(true);
+    }
+  }, [isSelectTable]);
 
   return (
     <div className="tableBookContainer">
@@ -103,6 +108,14 @@ function TableBook(props) {
           ></TableDraws>
         ))}
       </div>
+
+      {isCarousel && (
+        <OrderCarousel
+          close={() => setCarousel(false)}
+          table={isSelectTable}
+          setTable={() => setSelectTable(0)}
+        ></OrderCarousel>
+      )}
     </div>
   );
 }
