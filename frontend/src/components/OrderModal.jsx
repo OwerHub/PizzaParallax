@@ -30,11 +30,14 @@ function OrderModal(props) {
       reserve: makeDateArray(),
     };
 
-    const postHead = {
+    fetch("http://localhost:8000/tableReserve", {
       method: "POST",
+      mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sendData),
-    };
+    })
+      .then((res) => res.text())
+      .then((res) => console.log(res));
 
     console.log(sendData);
   };

@@ -42,9 +42,15 @@ app.post("/tableCheck", (req, res) => {
       });
     });
   });
-
-  console.log(`resvariable is : ${resVariable}`);
+  /* 
+  console.log(`resvariable is : ${resVariable}`); */
   res.send(resVariable);
+});
+
+// új asztalfoglalás
+app.post("/tableReserve", (req, res) => {
+  console.log(req.body);
+  res.send("sumbitted");
 });
 
 app.listen(PORT, function () {
