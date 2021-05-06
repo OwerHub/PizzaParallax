@@ -5,7 +5,7 @@ import OrderModal from "./OrderModal";
 function TableBook(props) {
   const [isTableAvilable, setTableAvilable] = useState("11111");
   const [isSelectTable, setSelectTable] = useState(0);
-  const [isCarousel, setCarousel] = useState(false);
+  const [isModal, setModal] = useState(false);
   const [isDate, setDate] = useState(0);
 
   // itt állítsd be a nyitást és az zárást
@@ -56,7 +56,7 @@ function TableBook(props) {
   useEffect(() => {
     console.log(`isSeclect: ${isSelectTable}`);
     if (isSelectTable !== 0) {
-      setCarousel(true);
+      setModal(true);
     }
   }, [isSelectTable]);
 
@@ -109,9 +109,9 @@ function TableBook(props) {
         ))}
       </div>
 
-      {isCarousel && (
+      {isModal && (
         <OrderModal
-          close={() => setCarousel(false)}
+          close={() => setModal(false)}
           table={isSelectTable}
           setTable={() => setSelectTable(0)}
           date={isDate}
