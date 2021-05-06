@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+fs = require("fs");
+
 const app = express();
 const PORT = 8000;
 app.use(cors());
@@ -49,7 +51,13 @@ app.post("/tableCheck", (req, res) => {
 
 // új asztalfoglalás
 app.post("/tableReserve", (req, res) => {
-  console.log(req.body);
+  reservList.push(req.body);
+  let dataString = JSON.stringify(reservList, null, 2);
+  console.log(reservList);
+
+  fs.writeFile("./datapack/reservList.json", dataString, function (err) {
+    if (err) return console.log(err);
+  });
   res.send("sumbitted");
 });
 

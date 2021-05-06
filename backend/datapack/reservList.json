@@ -1,27 +1,61 @@
 [
-	{
-		"name" : "Bevíz Elek",
-		"mail" : "bevizelek@gmail.com",
-		"phone" : "0630123123",
-		"reserve": ["2021-05-20-16-5", "2021-05-20-17-5"]
-	}, 
-	{
-		"name" : "Kandisz Nóra",
-		"mail" : "kandisznora@gmail.com",
-		"phone" : "06306658470",
-		"reserve": ["2021-05-22-16-2", "2021-05-22-17-2"]
-	}, 
-	{
-		"name" : "Bevíz elek",
-		"mail" : "bevizelek@gmail.com",
-		"phone" : "06306658470",
-		"reserve": ["2021-05-20-16-1", "2021-05-20-17-1"]
-	},
-	{
-		"name" : "Bevíz elek2",
-		"mail" : "bevizelek@gmail.com",
-		"phone" : "06306658470",
-		"reserve": ["2021-05-20-16-3", "2021-05-20-17-3", "2021-05-20-18-3"]
-	}
-	 
+  {
+    "name": "Bevíz Elek",
+    "mail": "bevizelek@gmail.com",
+    "phone": "0630123123",
+    "reserve": [
+      "2021-05-20-16-5",
+      "2021-05-20-17-5"
+    ]
+  },
+  {
+    "name": "Kandisz Nóra",
+    "mail": "kandisznora@gmail.com",
+    "phone": "06306658470",
+    "reserve": [
+      "2021-05-22-16-2",
+      "2021-05-22-17-2"
+    ]
+  },
+  {
+    "name": "Bevíz elek",
+    "mail": "bevizelek@gmail.com",
+    "phone": "06306658470",
+    "reserve": [
+      "2021-05-20-16-1",
+      "2021-05-20-17-1"
+    ]
+  },
+  {
+    "name": "Bevíz elek2",
+    "mail": "bevizelek@gmail.com",
+    "phone": "06306658470",
+    "reserve": [
+      "2021-05-20-16-3",
+      "2021-05-20-17-3",
+      "2021-05-20-18-3"
+    ]
+  },
+  {
+    "name": "Próba Irén",
+    "mail": "load@gmail.com",
+    "phone": "06301234545",
+    "reserve": [
+      "2021-05-21-16-2",
+      "2021-05-21-17-2",
+      "2021-05-21-18-2",
+      "2021-05-21-19-2"
+    ]
+  },
+  {
+    "name": "Próba2 Irén",
+    "mail": "a@b.c",
+    "phone": "06301231212",
+    "reserve": [
+      "2021-05-21-16-3",
+      "2021-05-21-17-3",
+      "2021-05-21-18-3",
+      "2021-05-21-19-3"
+    ]
+  }
 ]

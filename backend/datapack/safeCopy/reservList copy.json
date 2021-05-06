@@ -1,0 +1,27 @@
+[
+	{
+		"name" : "Bevíz Elek",
+		"mail" : "bevizelek@gmail.com",
+		"phone" : "0630123123",
+		"reserve": ["2021-05-20-16-5", "2021-05-20-17-5"]
+	}, 
+	{
+		"name" : "Kandisz Nóra",
+		"mail" : "kandisznora@gmail.com",
+		"phone" : "06306658470",
+		"reserve": ["2021-05-22-16-2", "2021-05-22-17-2"]
+	}, 
+	{
+		"name" : "Bevíz elek",
+		"mail" : "bevizelek@gmail.com",
+		"phone" : "06306658470",
+		"reserve": ["2021-05-20-16-1", "2021-05-20-17-1"]
+	},
+	{
+		"name" : "Bevíz elek2",
+		"mail" : "bevizelek@gmail.com",
+		"phone" : "06306658470",
+		"reserve": ["2021-05-20-16-3", "2021-05-20-17-3", "2021-05-20-18-3"]
+	}
+	 
+]
