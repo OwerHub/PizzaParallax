@@ -3,6 +3,7 @@ import TableDraws from "./TableDraws";
 
 function TableBook(props) {
   const [isTableAvilable, setTableAvilable] = useState("11111");
+  const [isSelectTable, setSelectTable] = useState(0);
 
   // itt állítsd be a nyitást és az zárást
   let open = 16;
@@ -21,6 +22,8 @@ function TableBook(props) {
       }
     }
   })();
+
+  // szabad asztalok ellenőrzése
 
   function collectData() {
     console.log("in CollectData");
@@ -49,6 +52,9 @@ function TableBook(props) {
 
   /*   console.log(isTableAvilable); */
 
+  // Asztal kiválasztása
+  console.log(`isSeclect: ${isSelectTable}`);
+
   return (
     <div className="tableBookContainer">
       <h2>TableBook</h2>
@@ -63,8 +69,10 @@ function TableBook(props) {
         <div className="startTimeContainer">
           <h5>start</h5>
           <select name="startTime" id="startTimeSelect">
-            {startArray.map((data) => (
-              <option value={data}>{data}:00</option>
+            {startArray.map((data, iterator) => (
+              <option key={iterator} value={data}>
+                {data}:00
+              </option>
             ))}
           </select>
         </div>
@@ -72,8 +80,10 @@ function TableBook(props) {
         <div className="endTimeContainer">
           <h5>end</h5>
           <select name="endTime" id="endTimeSelect">
-            {endArray.map((data) => (
-              <option value={data}>{data}:00</option>
+            {endArray.map((data, iterator) => (
+              <option key={iterator} value={data}>
+                {data}:00
+              </option>
             ))}
           </select>
         </div>
@@ -84,11 +94,14 @@ function TableBook(props) {
       </div>
 
       <div className="tablesContainer">
-        <TableDraws key={1} tableNr={1} avilable={isTableAvilable}></TableDraws>
-        <TableDraws key={2} tableNr={2} avilable={isTableAvilable}></TableDraws>
-        <TableDraws key={3} tableNr={3} avilable={isTableAvilable}></TableDraws>
-        <TableDraws key={4} tableNr={4} avilable={isTableAvilable}></TableDraws>
-        <TableDraws key={5} tableNr={5} avilable={isTableAvilable}></TableDraws>
+        {[1, 2, 3, 4, 5].map((data) => (
+          <TableDraws
+            key={data}
+            tableNr={data}
+            avilable={isTableAvilable}
+            setTableNr={setSelectTable}
+          ></TableDraws>
+        ))}
       </div>
     </div>
   );

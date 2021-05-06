@@ -1,16 +1,35 @@
 import React, { useState, useEffect } from "react";
 
 function TableDraws(props) {
-  function bgAvilable() {
+  /*  function bgAvilable() {
     if (props.avilable[props.tableNr - 1] === "0") {
       return "red";
     } else {
       return "green";
     }
+  } */
+
+  function avilableCHeck() {
+    if (props.avilable[props.tableNr - 1] === "0") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
+  function clickNumber() {
+    props.setTableNr(props.tableNr);
+    console.log("clicked");
+  }
+
+  const avilableStyle = {
+    cursor: "pointer",
+  };
+
+  const notAvilableStyle = {};
+
   return (
-    <div className="tabDiv">
+    <div className="tabDiv" onClick={() => clickNumber()}>
       <div className="svgContainer">
         <h4>Table {props.tableNr}</h4>
         <svg
@@ -18,7 +37,7 @@ function TableDraws(props) {
           data-name="Capa 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 421.4 421.4"
-          fill={bgAvilable()}
+          fill={avilableCHeck() ? "green" : "red"}
         >
           <g>
             <path d="M148,223.37H106.57l-2.52,22h33v22.5H101.48l-2.51,22h38v33.5a11,11,0,0,0,22,0v-89A11,11,0,0,0,148,223.37Z" />
