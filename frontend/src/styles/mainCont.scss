@@ -1,3 +1,19 @@
+/* import-ok*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&display=swap');
+
+$red1 : #770d15;
+$red2 : #b4000f;
+$green1: #90a74c;
+$green2: #597718;
+
+$darkgreen : #0C120C;
+$black1: #010400;
+$white1: #FFFBFC;
+$yellow-brown: #F0C987;
+
+
+
 /* általános style-ok */
 body{
 	overflow-x: hidden;
@@ -50,13 +66,17 @@ body{
 
 	.nameContainer{
 		position: absolute;
+		font-family: 'Lobster', cursive;
 	/* 	background-color: royalblue; */
 		height: 100vh;
 		width: 100vw;
 		z-index: 5;
-
-		span{
-			font-size: 550%;
+		flex-direction: column;
+		div{
+			
+			transform: translateY(-10%);
+			font-size: 12vw;
+		/* 	mobilnézetben nagyobb kell majd */
 			color: white;
 			text-shadow: 0px 0px 10px black;
 		}
@@ -69,7 +89,7 @@ body{
 
 	
 	height: 100vh;
-	background-color: rgb(22, 22, 22);
+	background-color: $darkgreen;
 	color: whitesmoke ;
 	position: relative ;
 	display: flex;
@@ -98,19 +118,44 @@ body{
 
 .pizzaListContainer{
 	padding: 10px;
-	background-color: lightseagreen;
+	background-color:$red2;
 	.pizzaCards{
+		font-family: 'New Tegomin', serif;
 		display: grid;
 		grid-template-columns: repeat(2 , 1fr);
-
+		
 	}
 }
+/* pizzacard */
 
 .pizzaCardContainer{
-	background-color: whitesmoke;
-
+	background-color: $yellow-brown;
 	margin: 10px;
 	border-radius: 4px;
+	border: 3px solid black;
+	.pizzaName{
+		font-size: 130%;
+		color: whitesmoke;
+		font-weight: bold;
+		padding: 2px 2px 5px;
+		width: 40%;
+		background-color:$black1;
+		transform: translate(-10px, -5px) rotate(-3deg);
+		border: 2px solid white
+	}
+	.pizzaToppings{
+	  padding: 0 10px;
+		text-align: left;
+		width: 80%;
+		margin: 0 0 10px 0;
+	
+	}
+	.pizzaPrices{
+		display: flex;
+		justify-content: space-around;
+		padding: 5px 0  ;
+	
+	}
 }
 
 .modify{

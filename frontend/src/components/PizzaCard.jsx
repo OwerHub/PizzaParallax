@@ -13,8 +13,8 @@ function PizzaCard(props) {
   return (
     <div className="pizzaCardContainer">
       <div className="pizzaName">{props.data.name}</div>
-      <div className="pizzaTop">{toppings}</div>
-      <div className="PizzaPrices">
+      <div className="pizzaToppings">{toppings}</div>
+      <div className="pizzaPrices">
         <div className="smallPrice">22cm: {props.data.price.small}</div>
         <div className="midPrice">30cm: {props.data.price.medium}</div>
         <div className="bigPrice">45cm: {props.data.price.big}</div>

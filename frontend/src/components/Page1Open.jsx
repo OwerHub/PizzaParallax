@@ -61,7 +61,8 @@ function pageOpen(props) {
       <div className="mainBgColor" style={bgStyle}></div>
       <div className="pizzaPic" style={pizzaStyle}></div>
       <div className="nameContainer flexCenter" style={nameConteinerStyle}>
-        <span>Neta - Pizza </span>
+        <div>Parallax</div>
+        <div>Pizza</div>
         {/*   <SvgHead></SvgHead> */}
       </div>
     </div>

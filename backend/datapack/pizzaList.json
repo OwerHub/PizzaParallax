@@ -37,7 +37,7 @@
   },
 
   {
-    "name": "Tenger gyümölcse",
+    "name": "Aquaman",
     "topping": ["paradicsomos alap", "polip", "tintahal", "rák", "kagyló", "sajt"],
     "price": {
       "small": 1500,
@@ -64,7 +64,7 @@
   },
 
   {
-    "name": "Disznóvágás",
+    "name": "This-No-Vágás",
     "topping": [
       "paradicsomos alap",
       "bacon",
@@ -132,13 +132,12 @@
   },
 
   {
-    "name": "McDöglesz",
+    "name": "Hannibal",
     "topping": [
-      "paradicsomos-csípős alap",
-      "csípős szalámi",
-      "darált marhahús",
-      "pepperoni",
-      "ghost chili,",
+      "paradicsomos-pikáns alap",
+      "hagyma",
+      "máj",
+      "nagyszemű bab",
       "sajt"
     ],
     "price": {

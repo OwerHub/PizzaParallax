@@ -13,11 +13,12 @@ function TableBook(props) {
   const [isModal, setModal] = useState(false);
 
   const [isSelectTable, setSelectTable] = useState(0);
-  const [isAllHours, setAllHours] = useState(0);
-
   const [isSelectedStartTime, setSelectedStartTime] = useState(16);
   const [isSelectedEndTime, setSelectedEndTime] = useState(17);
+  const [isSelectedDate, setSelectedDate] = useState(false);
 
+  const [isTomorrow, setTomorrow] = useState("");
+  const [isAllHours, setAllHours] = useState(0);
   const [isEndArray, setEndArray] = useState([]);
   const [isStartArray, setStartArray] = useState([]);
 
@@ -49,8 +50,10 @@ function TableBook(props) {
 
   // szabad asztalok ellenőrzése
   function collectData() {
+    console.log("collectData Start");
+
     let sendArray = [];
-    let dateValue = document.querySelector("#dateInput").value;
+    let dateValue = isSelectedDate;
     let startValue = isSelectedStartTime;
     let endValue = isSelectedEndTime;
 
@@ -69,6 +72,27 @@ function TableBook(props) {
       .then((res) => setTableAvilable(res));
   }
 
+  useEffect(() => {
+    isSelectedDate && collectData();
+  }, [isSelectedDate, isSelectedStartTime, isSelectedEndTime]);
+
+  // minimum dátum beállítása
+
+  function today() {
+    let dateNow = new Date();
+    let year = dateNow.getFullYear();
+    let month = dateNow.getMonth() + 1;
+    month < 10 && (month = `0${month}`);
+    let day = dateNow.getDate() + 1;
+    day < 10 && (day = `0${day}`);
+    setTomorrow(`${year}-${month}-${day}`);
+    console.log(`today is: ${year}-${month}-${day}`);
+  }
+
+  useEffect(() => {
+    today();
+  }, []);
+
   // Asztal kiválasztása, Modal behívása
   useEffect(() => {
     console.log(`isSeclect: ${isSelectTable}`);
@@ -85,7 +109,12 @@ function TableBook(props) {
         <input
           type="date"
           id="dateInput"
-          min="2021-05-05" /* value="2021-05-05" */
+          min={isTomorrow}
+          value={isSelectedDate ? isSelectedDate : isTomorrow}
+          onChange={(e) => {
+            const value = e.target.value;
+            setSelectedDate(value);
+          }}
         />
 
         <div className="startTimeContainer">
@@ -124,11 +153,11 @@ function TableBook(props) {
           </select>
         </div>
 
-        <div className="dateSendButtonDin">
+        {/*  <div className="dateSendButtonDin">
           <button onClick={collectData} disabled={!isValid}>
             Dátum elküld
           </button>
-        </div>
+        </div> */}
       </div>
 
       <div className="tablesContainer">
