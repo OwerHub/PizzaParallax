@@ -3,50 +3,62 @@ import TableDraws from "./TableDraws";
 import OrderModal from "./OrderModal";
 
 function TableBook(props) {
+  // itt állítsd be a nyitást és az zárást
+  let open = 16;
+  let close = 23;
+
   const [isTableAvilable, setTableAvilable] = useState("11111");
 
   const [isValid, setValid] = useState(true);
   const [isModal, setModal] = useState(false);
 
   const [isSelectTable, setSelectTable] = useState(0);
-  const [isDate, setDate] = useState(0);
+  const [isAllHours, setAllHours] = useState(0);
 
-  const [isStartTime, setStartTime] = useState(16);
-  const [isEndTime, setEndTime] = useState(17);
+  const [isSelectedStartTime, setSelectedStartTime] = useState(16);
+  const [isSelectedEndTime, setSelectedEndTime] = useState(17);
 
-  // itt állítsd be a nyitást és az zárást
-  let open = 16;
-  let close = 23;
+  const [isEndArray, setEndArray] = useState([]);
+  const [isStartArray, setStartArray] = useState([]);
 
+  // start és endarray beállítása
   let startArray = [];
-  let endArray = [];
-
-  (function arrayMaker() {
+  useEffect(() => {
+    let endArray = [];
     for (let index = open; index <= close; index++) {
-      if (index !== open) {
-        endArray.push(index);
-      }
       if (index !== close) {
         startArray.push(index);
       }
+      if (index !== close) {
+        endArray.push(index);
+      }
     }
-  })();
+    setEndArray(endArray);
+    setStartArray(startArray);
+    console.log("startarray In Effect" + startArray);
+  }, []);
+
+  // end time array beállítása
+  useEffect(() => {
+    let endArray2 = [];
+    for (let i = isSelectedStartTime; i <= close; i++) {
+      i > isSelectedStartTime && endArray2.push(i);
+    }
+    setEndArray(endArray2);
+  }, [isSelectedStartTime]);
 
   // szabad asztalok ellenőrzése
-
   function collectData() {
     let sendArray = [];
     let dateValue = document.querySelector("#dateInput").value;
-    let startValue = document.querySelector("#startTimeSelect").value;
-    let endValue = document.querySelector("#endTimeSelect").value;
-
-    console.log(endValue);
+    let startValue = isSelectedStartTime;
+    let endValue = isSelectedEndTime;
 
     for (let index = startValue; index <= endValue; index++) {
       sendArray.push(`${dateValue}-${index}`);
     }
 
-    setDate(sendArray);
+    setAllHours(sendArray);
     fetch("http://localhost:8000/tableCheck", {
       method: "POST",
       mode: "cors",
@@ -57,8 +69,7 @@ function TableBook(props) {
       .then((res) => setTableAvilable(res));
   }
 
-  // Asztal kiválasztása, carousel behívása
-
+  // Asztal kiválasztása, Modal behívása
   useEffect(() => {
     console.log(`isSeclect: ${isSelectTable}`);
     if (isSelectTable !== 0) {
@@ -79,8 +90,15 @@ function TableBook(props) {
 
         <div className="startTimeContainer">
           <h5>start</h5>
-          <select name="startTime" id="startTimeSelect">
-            {startArray.map((data, iterator) => (
+          <select
+            name="startTime"
+            id="startTimeSelect"
+            onChange={(e) => {
+              const value = e.target.value;
+              setSelectedStartTime(value);
+            }}
+          >
+            {isStartArray.map((data, iterator) => (
               <option key={iterator} value={data}>
                 {data}:00
               </option>
@@ -90,8 +108,15 @@ function TableBook(props) {
 
         <div className="endTimeContainer">
           <h5>end</h5>
-          <select name="endTime" id="endTimeSelect">
-            {endArray.map((data, iterator) => (
+          <select
+            name="endTime"
+            id="endTimeSelect"
+            onChange={(e) => {
+              const value = e.target.value;
+              setSelectedEndTime(value);
+            }}
+          >
+            {isEndArray.map((data, iterator) => (
               <option key={iterator} value={data}>
                 {data}:00
               </option>
@@ -122,7 +147,7 @@ function TableBook(props) {
           close={() => setModal(false)}
           table={isSelectTable}
           setTable={() => setSelectTable(0)}
-          date={isDate}
+          date={isAllHours}
         ></OrderModal>
       )}
     </div>
