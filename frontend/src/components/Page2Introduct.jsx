@@ -20,13 +20,13 @@ function PageIntro(props) {
       25,
       1
     )})
-    translate(${parallaxPercent(props.offset, 0, 0, 0, 0)}px , ${parallaxPercent(
+    translate(0px , ${parallaxPercent(
       props.offset,
       window.innerHeight * 1.0,
       window.innerHeight * 2.0,
       0,
-      window.innerHeight * 1
-    )}px ) `,
+      window.innerHeight * -1
+    )}px ) scaleY(-1) `,
 
     opacity: `${
       parallaxPercent(props.offset, window.innerHeight / 2, maxScroll, 0, 100) / 100

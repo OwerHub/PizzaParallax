@@ -35,17 +35,17 @@ function pageOpen(props) {
   /* let try = parallaxPercent(porps.offset, innerHeight * 0.4, maxScroll, 0, 100); */
 
   let pizzaStyle = {
-    transform: `translateY(${parallaxPercent(
+    /* transform: `translateY(${parallaxPercent(
       props.offset,
       minScroll,
       window.innerHeight,
       0,
       window.innerHeight * 0.2
-    )}px)`,
+    )}px)`, */
   };
 
   let bgStyle = {
-    backgroundColor: `rgba(0,0,0,${
+    /*   backgroundColor: `rgba(0,0,0,${
       parallaxPercent(
         props.offset,
         window.innerHeight * 0.4,
@@ -53,7 +53,7 @@ function pageOpen(props) {
         0,
         100
       ) / 100
-    })`,
+    })`, */
   };
 
   return (

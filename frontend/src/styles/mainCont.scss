@@ -17,6 +17,7 @@ $yellow-brown: #F0C987;
 /* általános style-ok */
 body{
 	overflow-x: hidden;
+	position: relative;
 }
 
 .flexCenter{
@@ -31,29 +32,47 @@ body{
 	background-color: yellow;	
 }
 
+.main-background{
+	height: 100vh;
+	width: 100vmax;
+		top:0;
+	 	background-image: url("../img/304643.jpg");  
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: fixed;
+		overflow: hidden;
+}
+
+.scrolledDiv{
+	height: 100vh;
+
+	/* sajnos csak overflow-scroll-al műkdödik, ami valamiért akadályozz a scroll-t */
+ /* 	 overflow-y: scroll; 
+	scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory; */
+
+}
 
 /* első képernyő */
 
 .backgroundPic{
 	height: 100vh;
-	background-image: url("../img/304643.jpg"); 
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	overflow: hidden;
-	.mainBgColor{
+	scroll-snap-align: start;
+
+/* 	.mainBgColor{
 		 position:absolute;
 		
 		 height: 100vh;
 		 width: 100vw;
-	}
+	} */
 	.pizzaPic{
 	
 		height: 100vh;
 		width: 99vw;
 
 
-		position: absolute;
+/* 		position: absolute;  */
 		background-image: url("../img/pizza-main.png"); 
 		background-size: 90%;
 		background-repeat: no-repeat;
@@ -65,7 +84,7 @@ body{
 
 
 	.nameContainer{
-		position: absolute;
+		position: fixed;
 		font-family: 'Lobster', cursive;
 	/* 	background-color: royalblue; */
 		height: 100vh;
@@ -86,10 +105,17 @@ body{
 /* második képernyő */
 
 .introduction{
-
+	 scroll-snap-align: start; 
+	height: 100vh;
+/* 	background-image: url("../img/304643.jpg");  */
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+	transform: scaleY(-1);
 	
 	height: 100vh;
-	background-color: $darkgreen;
+	/* background-color: $darkgreen; */
 	color: whitesmoke ;
 	position: relative ;
 	display: flex;
@@ -100,6 +126,7 @@ body{
 
 }
 .descriptionContainer{
+
 	position: absolute;
 
 
@@ -118,15 +145,40 @@ body{
 
 .pizzaListContainer{
 	padding: 10px;
-	background-color:$red2;
+
+/* 	background-color:$red2; */
+	position: relative;
 	.pizzaCards{
 		font-family: 'New Tegomin', serif;
-		display: grid;
-		grid-template-columns: repeat(2 , 1fr);
-		
+
+
+	
+	
 	}
 }
-/* pizzacard */
+
+@media only screen and (max-width: 768px) {
+	.pizzaCards{
+	 padding: 0 3rem;
+	 display: grid;
+	 grid-template-columns: repeat(1, 1fr);
+		background-color: green; 
+ 
+	}
+ }
+
+@media only screen and (min-width: 768px) {
+ .pizzaCards{
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	 background-color: red; 
+
+ }
+}
+
+
+/*------- pizzacard----------- */
 
 .pizzaCardContainer{
 	background-color: $yellow-brown;
@@ -152,8 +204,17 @@ body{
 	}
 	.pizzaPrices{
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-around;
-		padding: 5px 0  ;
+		padding: 0 10px;;
+	
+		div{
+			min-width: 110px;
+			margin: 8px 5px;
+			padding:  2px 5px;
+			border-radius: .5rem;
+			border: 2px solid black;
+		}
 	
 	}
 }
@@ -165,8 +226,9 @@ body{
 /* negyedik képernyő  asztalok*/
 
 .tableBookContainer {
+	position: relative;
 	min-height: 100vh;
-	background-color: rgb(22, 22, 22);
+/* 	background-color: rgb(22, 22, 22); */
 	
 	padding-top: 1rem;
 	.tablesContainer{

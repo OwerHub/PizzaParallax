@@ -27,13 +27,13 @@ function FirstCont() {
 
   return (
     <div>
-      <PageOpen offset={offset} fakeBackend={fakeBackend}></PageOpen>
-
-      <PageIntro offset={offset} fakeBackend={fakeBackend}></PageIntro>
-
-      <PizzaList fakeBackend={fakeBackend}></PizzaList>
-
-      <Tables offset={offset} fakeBackend={fakeBackend}></Tables>
+      <div className="main-background"></div>
+      <div className="scrolledDiv">
+        <PageOpen offset={offset} fakeBackend={fakeBackend}></PageOpen>
+        <PageIntro offset={offset} fakeBackend={fakeBackend}></PageIntro>
+        <PizzaList fakeBackend={fakeBackend}></PizzaList>
+        <Tables offset={offset} fakeBackend={fakeBackend}></Tables>
+      </div>
 
       <div className="pizzas"></div>
     </div>
