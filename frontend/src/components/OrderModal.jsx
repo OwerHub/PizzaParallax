@@ -2,32 +2,32 @@ import React, { useState, useEffect } from "react";
 
 function OrderModal(props) {
   const [isValid, setValid] = useState(false);
+
   const [isMailVal, setMailVal] = useState("");
+  const [isNameVal, setNameVal] = useState("");
+  const [isPhoneVal, setPhoneVal] = useState("");
 
   // validate
-  function emailValidate(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
 
-  function numberValidate(phone) {
-    return /*  /^[0d-9]+$/.test(phone) && */ phone.length > 8;
-  }
-
-  function nameValidate(name) {
-    return name.length > 5;
-  }
-
-  function validateFunct() {
-    let mailVal = document.querySelector(".emailInput").value;
-    let nameVal = document.querySelector(".nameInput").value;
-    let phoneVal = document.querySelector(".phoneInput").value;
+  useEffect(() => {
+    function emailValidate(email) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
+    function numberValidate(phone) {
+      return /*  /^[0d-9]+$/.test(phone) && */ phone.length > 8;
+    }
+    function nameValidate(name) {
+      return name.length > 5;
+    }
 
     setValid(
-      emailValidate(mailVal) && numberValidate(phoneVal) && nameValidate(nameVal)
+      emailValidate(isMailVal) &&
+        numberValidate(isPhoneVal) &&
+        nameValidate(isNameVal)
     );
-  }
+  }, [isMailVal, isNameVal, isPhoneVal]);
 
-  //
+  // Close the Modal
   function closeCarousel() {
     props.close();
     props.setTable();
@@ -50,9 +50,9 @@ function OrderModal(props) {
     console.log("in fetchFunct");
 
     let sendData = {
-      name: document.querySelector(".nameInput").value,
-      mail: document.querySelector(".emailInput").value,
-      phone: document.querySelector(".phoneInput").value,
+      name: isNameVal,
+      mail: isMailVal,
+      phone: isPhoneVal,
       reserve: makeDateArray(),
     };
 
@@ -70,30 +70,39 @@ function OrderModal(props) {
 
   return (
     <div className="modalOut">
-      <div>i am a carousel</div>
+      {/* <div>i am a carousel</div>
       <div>You select a {props.table} table</div>
-      <div>You selected a ${props.date} date</div>
+      <div>You selected a ${props.date} date</div> */}
 
       <form action="something" className="modalForm">
         <input
           type="text"
           className="nameInput"
           placeholder="name"
-          onChange={() => validateFunct()}
+          onChange={(e) => {
+            const value = e.target.value;
+            setNameVal(value);
+          }}
         />
         <input
           type="email"
           className="emailInput"
           placeholder="mail"
           required
-          onChange={() => validateFunct()}
+          onChange={(e) => {
+            const value = e.target.value;
+            setMailVal(value);
+          }}
         />
         <input
           type="tel"
           className="phoneInput"
           placeholder="0630123123"
           required
-          onChange={() => validateFunct()}
+          onChange={(e) => {
+            const value = e.target.value;
+            setPhoneVal(value);
+          }}
         />
         <button type="submit" onClick={submitFetch} disabled={!isValid}>
           Submit

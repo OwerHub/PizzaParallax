@@ -4,9 +4,15 @@ import OrderModal from "./OrderModal";
 
 function TableBook(props) {
   const [isTableAvilable, setTableAvilable] = useState("11111");
-  const [isSelectTable, setSelectTable] = useState(0);
+
+  const [isValid, setValid] = useState(true);
   const [isModal, setModal] = useState(false);
+
+  const [isSelectTable, setSelectTable] = useState(0);
   const [isDate, setDate] = useState(0);
+
+  const [isStartTime, setStartTime] = useState(16);
+  const [isEndTime, setEndTime] = useState(17);
 
   // itt állítsd be a nyitást és az zárást
   let open = 16;
@@ -94,7 +100,9 @@ function TableBook(props) {
         </div>
 
         <div className="dateSendButtonDin">
-          <button onClick={collectData}>Dátum elküld</button>
+          <button onClick={collectData} disabled={!isValid}>
+            Dátum elküld
+          </button>
         </div>
       </div>
 
