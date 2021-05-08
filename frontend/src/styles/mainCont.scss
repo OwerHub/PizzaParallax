@@ -385,10 +385,28 @@ padding-top: 1rem;
 		&:hover{
 			box-shadow: 2px 2px black;
 			transform: translate(-2px, -2px);
-			svg{
+		/* 	svg{
 				-webkit-filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, .7));
 				filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, .7));
+			} */
+			svg{
+				fill: transparent;
+				stroke: white;
+				stroke-width: 3;
+				animation: tableAnimate 2s ease-in-out alternate infinite;
 			}
+			@keyframes tableAnimate {
+				0%{
+					stroke-dasharray:0 50% ;
+					stroke-dashoffset:20% ;
+				}
+				100%{
+					stroke-dasharray: 50% 0 ;
+					stroke-dashoffset:-20% ;
+			
+				}
+			} 
+		
 		}
 	}
 
