@@ -152,12 +152,6 @@ function TableBook(props) {
             ))}
           </select>
         </div>
-
-        {/*  <div className="dateSendButtonDin">
-          <button onClick={collectData} disabled={!isValid}>
-            Dátum elküld
-          </button>
-        </div> */}
       </div>
 
       <div className="tablesContainer">

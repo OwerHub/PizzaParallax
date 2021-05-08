@@ -25,8 +25,8 @@ function PageIntro(props) {
       window.innerHeight * 1.0,
       window.innerHeight * 2.0,
       0,
-      window.innerHeight * -1
-    )}px ) scaleY(-1) `,
+      window.innerHeight * 0.5
+    )}px )  `,
 
     opacity: `${
       parallaxPercent(props.offset, window.innerHeight / 2, maxScroll, 0, 100) / 100

@@ -30,6 +30,7 @@ function pageOpen(props) {
       0,
       8
     )}px)`,
+    display: `${props.offset > window.innerHeight ? "none" : "inherit"}`,
   };
 
   /* let try = parallaxPercent(porps.offset, innerHeight * 0.4, maxScroll, 0, 100); */

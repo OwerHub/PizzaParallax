@@ -28,6 +28,7 @@ function FirstCont() {
   return (
     <div>
       <div className="main-background"></div>
+      <div className="mainHead">sdadasda</div>
       <div className="scrolledDiv">
         <PageOpen offset={offset} fakeBackend={fakeBackend}></PageOpen>
         <PageIntro offset={offset} fakeBackend={fakeBackend}></PageIntro>
