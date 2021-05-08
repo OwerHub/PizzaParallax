@@ -27,10 +27,7 @@ function TableDraws(props) {
   const notAvilableStyle = {};
 
   return (
-    <div
-      onClick={() => clickNumber()}
-      style={avilableCHeck() ? avilableStyle : notAvilableStyle}
-    >
+    <div onClick={() => clickNumber()} className="tableContainer">
       <div
         className={`svgContainer ${
           avilableCHeck() ? "tableAvilable" : "tableNotAvilable"

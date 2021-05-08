@@ -28,7 +28,7 @@ function OrderModal(props) {
   }, [isMailVal, isNameVal, isPhoneVal]);
 
   // Close the Modal
-  function closeCarousel() {
+  function closeModal() {
     props.close();
     props.setTable();
   }
@@ -70,11 +70,10 @@ function OrderModal(props) {
 
   return (
     <div className="modalOut">
-      {/* <div>i am a carousel</div>
-      <div>You select a {props.table} table</div>
-      <div>You selected a ${props.date} date</div> */}
+      <div className="pictureDiv"></div>
 
-      <form action="something" className="modalForm">
+      <form action="something">
+        <h3>Asztalfoglalás</h3>
         <input
           type="text"
           className="nameInput"
@@ -107,9 +106,10 @@ function OrderModal(props) {
         <button type="submit" onClick={submitFetch} disabled={!isValid}>
           Submit
         </button>
+        <button className="modalCloseButton" onClick={() => closeModal()}>
+          X
+        </button>
       </form>
-
-      <button onClick={() => closeCarousel()}>close</button>
     </div>
   );
 }

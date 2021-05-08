@@ -187,7 +187,7 @@ body {
 /* --------------MEDIA QUERY --------------------- */
 @media only screen and (max-width: 768px) {
   .pizzaCards {
-    padding: 0 3rem;
+    padding: 0 0rem;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
@@ -263,6 +263,7 @@ body {
 .tableBookContainer .reserveTimeContainer select, .tableBookContainer .reserveTimeContainer input {
   background-color: rgba(180, 0, 15, 0.5);
   color: white;
+  border: none;
   border-radius: 10px;
   transform: scale(1.5);
   font-weight: bolder;
@@ -295,32 +296,69 @@ body {
 
 .svgContainer {
   border-radius: 2rem;
-  box-shadow: 1px 1px 5px #5b5b5b, -1px -1px 5px #000, inset 1px 1px 5px #5b5b5b, inset -1px -1px 5px #000;
+  background-color: rgba(1, 4, 0, 0.5);
   margin: 1rem;
 }
 .svgContainer svg {
-  width: 350px;
+  height: 30vh;
   margin: 15px;
 }
 
+.tableAvilable {
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
+  cursor: pointer;
+}
 .tableAvilable:hover {
-  background-color: lightcoral;
+  box-shadow: 2px 2px black;
+  transform: translate(-2px, -2px);
+}
+.tableAvilable:hover svg {
+  -webkit-filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.7));
+  filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.7));
 }
 
-/* 	Megrendelőlap */
+.tryGreen {
+  background-color: green;
+}
+
+/*--------------- 	Megrendelőlap, modal-------------------------- */
 .modalOut {
   position: fixed;
-  background-color: turquoise;
-  height: 80vh;
-  width: 80vw;
+  display: flex;
   top: 10vh;
-  left: 10vw;
+  left: 6vw;
 }
-.modalOut .modalForm {
+.modalOut .pictureDiv {
+  background-color: #770d15;
+  height: 70vh;
+  width: 40vw;
+  padding: 1vw;
+}
+.modalOut form {
+  background-color: #b4000f;
+  height: 70vh;
+  width: 40vw;
+  position: relative;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.modalOut .modalForm input {
+.modalOut form input {
   width: 30%;
+}
+.modalOut form .modalCloseButton {
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+  height: 30px;
+  width: 30px;
+  background: none;
+  border: none;
+  font-size: 250%;
+  text-shadow: 0px 0px 1px white;
+  font-weight: 800;
+  color: transparent;
+  cursor: pointer;
 }

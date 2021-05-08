@@ -24,8 +24,8 @@ function PageIntro(props) {
       props.offset,
       window.innerHeight * 1.0,
       window.innerHeight * 2.0,
-      0,
-      window.innerHeight * 0.5
+      0 - 200,
+      window.innerHeight * 1 - 200
     )}px )  `,
 
     opacity: `${
