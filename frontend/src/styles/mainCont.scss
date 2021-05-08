@@ -402,34 +402,145 @@ padding-top: 1rem;
 
 /*--------------- 	Megrendelőlap, modal-------------------------- */
 
+
+
+
+/*---inputfiels ----*/
+
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+.form__group {
+
+
+	text-align: left;
+
+	text-align: left;
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+
+
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid whitesmoke;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: whitesmoke;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: rgba($yellow2-brown, $alpha: .5);
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $yellow2-brown,$green1);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+
+
+
+/* ------------- */
 .modalOut{
 	position: fixed;
 	
 	display: flex;
 	top: 10vh;
 	left: 6vw;
+	
 	.pictureDiv{
 		background-color: $red1;
 		height: 70vh;
 		width: 40vw;
 		padding: 1vw;
 	}
-	form{
-		background-color: $red2;
+	.modalInputDiv{
+		background-color: $green1;
+		position: relative;
 		height: 70vh;
 		width: 40vw;
-		position: relative;
+		padding: 1vw;
+		h3{
+			font-size: 2rem;
+		}
+	}
+	form{
+		
+		/* background-color: $red2; */
+		margin-top: 3vh;
 		padding: 1vw;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		input{
+	/* 	input{
 			width: 30%;
+		} */
+		button[type="submit"]{
+			margin: 5vh 0 0 0;
+			padding: 10px 20px;	
+			border-radius: 2px;
+			border: none;
+			background: none;
+			font-size: 150%;
+			font-weight: 400;
+			color: blue;
+			&:enabled{
+				cursor: pointer;
+				box-shadow: 2px 2px 2px 0px black;
+
+			}
+			&:disabled{
+				transform: translate(-2px, -2px);
+				border-top: 2px solid black;
+				border-left: 2px solid black;
+				color: grey;			}
 		}
 		.modalCloseButton{
 			position: absolute;
-			top: 3vh;
-			right: 3vw;
+			top: 1vh;
+			right: 2vw;
 			height: 30px;
 			width: 30px;
 			background: none;
@@ -443,3 +554,31 @@ padding-top: 1rem;
 	}
 }
 
+/* -----------LoadAnimantion------------------ */
+
+.loadCover{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0vh;
+	left: 0vw;
+	background-color: rgba($black1, $alpha: .8);
+	@extend .flexCenter;
+	
+	.loadContainer{
+		background-color: red;
+		width: 50vw;
+		height: 50vh;
+		@extend .flexCenter;
+	}
+	
+}
+
+/* --------------------Done------------------*/
+
+.sucessCover{
+	@extend .loadCover;
+	.sucessContainer{
+		@extend.loadContainer
+	}
+}

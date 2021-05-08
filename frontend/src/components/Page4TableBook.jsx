@@ -48,7 +48,15 @@ function TableBook(props) {
     setEndArray(endArray2);
   }, [isSelectedStartTime]);
 
-  // szabad asztalok ellenőrzése
+  // ---- modal bezárásakor frissíti az asztalokat
+
+  useEffect(() => {
+    if (isModal === false) {
+      collectData();
+    }
+  }, [isModal]);
+
+  // ----szabad asztalok ellenőrzése, fetch
   function collectData() {
     console.log("collectData Start");
 

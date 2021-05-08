@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import LoadAnimation from "./LoadingAnimation";
+import SucessModal from "./SucessFullModal";
 
 function OrderModal(props) {
   const [isValid, setValid] = useState(false);
@@ -6,6 +8,9 @@ function OrderModal(props) {
   const [isMailVal, setMailVal] = useState("");
   const [isNameVal, setNameVal] = useState("");
   const [isPhoneVal, setPhoneVal] = useState("");
+
+  const [isLoading, setLoading] = useState(false);
+  const [isDone, setDone] = useState(false);
 
   // validate
 
@@ -42,10 +47,22 @@ function OrderModal(props) {
     return outArray;
   }
 
-  //
+  //-----Closing protokol
+  function closeProtokol() {
+    setLoading(false);
+    setDone(true);
+
+    setTimeout(() => {
+      setDone(false);
+      closeModal();
+    }, 3000);
+  }
+
+  //----------------  Sumbit
   const submitFetch = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    setLoading(true);
 
     console.log("in fetchFunct");
 
@@ -63,53 +80,88 @@ function OrderModal(props) {
       body: JSON.stringify(sendData),
     })
       .then((res) => res.text())
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .finally(() => {
+        closeProtokol();
+      });
 
     console.log(sendData);
   };
 
   return (
-    <div className="modalOut">
-      <div className="pictureDiv"></div>
+    <div className="modalContainer">
+      {isLoading ? (
+        <LoadAnimation></LoadAnimation>
+      ) : isDone ? (
+        <SucessModal></SucessModal>
+      ) : (
+        <div className="modalOut">
+          <div className="pictureDiv"></div>
+          <div className="modalInputDiv">
+            <h3>Asztalfoglalás</h3>
+            <form action="something">
+              <div class="form__group field">
+                <input
+                  type="text"
+                  className="nameInput form__field"
+                  placeholder="name"
+                  id="name"
+                  required
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setNameVal(value);
+                  }}
+                />
+                <label htmlFor="name" class="form__label">
+                  name
+                </label>
+              </div>
 
-      <form action="something">
-        <h3>Asztalfoglalás</h3>
-        <input
-          type="text"
-          className="nameInput"
-          placeholder="name"
-          onChange={(e) => {
-            const value = e.target.value;
-            setNameVal(value);
-          }}
-        />
-        <input
-          type="email"
-          className="emailInput"
-          placeholder="mail"
-          required
-          onChange={(e) => {
-            const value = e.target.value;
-            setMailVal(value);
-          }}
-        />
-        <input
-          type="tel"
-          className="phoneInput"
-          placeholder="0630123123"
-          required
-          onChange={(e) => {
-            const value = e.target.value;
-            setPhoneVal(value);
-          }}
-        />
-        <button type="submit" onClick={submitFetch} disabled={!isValid}>
-          Submit
-        </button>
-        <button className="modalCloseButton" onClick={() => closeModal()}>
-          X
-        </button>
-      </form>
+              <div class="form__group field">
+                <input
+                  type="email"
+                  className="emailInput form__field"
+                  placeholder="mail"
+                  id="mail"
+                  required
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setMailVal(value);
+                  }}
+                />
+                <label htmlFor="mail" class="form__label">
+                  mail
+                </label>
+              </div>
+
+              <div class="form__group field">
+                <input
+                  type="tel"
+                  className="phoneInput form__field"
+                  placeholder="0630123123"
+                  id="phone"
+                  required
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setPhoneVal(value);
+                  }}
+                />
+
+                <label htmlFor="phone" class="form__label">
+                  phone
+                </label>
+              </div>
+
+              <button type="submit" onClick={submitFetch} disabled={!isValid}>
+                Submit
+              </button>
+              <button className="modalCloseButton" onClick={() => closeModal()}>
+                X
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
