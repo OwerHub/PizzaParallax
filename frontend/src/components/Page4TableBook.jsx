@@ -36,7 +36,7 @@ function TableBook(props) {
     }
     setEndArray(endArray);
     setStartArray(startArray);
-    console.log("startarray In Effect" + startArray);
+    /*   console.log("startarray In Effect" + startArray); */
   }, []);
 
   // end time array beállítása
@@ -58,8 +58,6 @@ function TableBook(props) {
 
   // ----szabad asztalok ellenőrzése, fetch
   function collectData() {
-    console.log("collectData Start");
-
     let sendArray = [];
     let dateValue = isSelectedDate;
     let startValue = isSelectedStartTime;
@@ -94,7 +92,6 @@ function TableBook(props) {
     let day = dateNow.getDate() + 1;
     day < 10 && (day = `0${day}`);
     setTomorrow(`${year}-${month}-${day}`);
-    console.log(`today is: ${year}-${month}-${day}`);
   }
 
   useEffect(() => {
@@ -103,11 +100,39 @@ function TableBook(props) {
 
   // Asztal kiválasztása, Modal behívása
   useEffect(() => {
-    console.log(`isSeclect: ${isSelectTable}`);
     if (isSelectTable !== 0) {
       setModal(true);
     }
   }, [isSelectTable]);
+
+  // ----- Magasságszámítás
+
+  function getInnerHeight(elm) {
+    let computed = getComputedStyle(elm),
+      padding = parseInt(computed.paddingTop) + parseInt(computed.paddingBottom);
+
+    return elm.clientHeight - padding;
+  }
+
+  function onLoadFunc(selector, type = "height") {
+    const div = document.querySelector(selector);
+
+    if (div !== null && type === "height") {
+      return getInnerHeight(div);
+    }
+    if (div !== null && type === "offsetTop") {
+      return div.offsetTop;
+    }
+  }
+
+  useEffect(() => {
+    console.log("height is :" + onLoadFunc(".tableBookContainer"));
+    console.log("offset is :" + onLoadFunc(".tableBookContainer", "offsetTop"));
+
+    let arrayTemp = props.isPageCollector;
+    arrayTemp[3] = onLoadFunc(".tableBookContainer");
+    props.setPageCollector(arrayTemp);
+  }, []);
 
   return (
     <div className="tableBookContainer">

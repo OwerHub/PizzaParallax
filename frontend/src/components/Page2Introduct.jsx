@@ -8,10 +8,6 @@ function PageIntro(props) {
   let maxValue = window.innerWidth;
   let move = parallaxPercent(props.offset, minScroll, maxScroll, minValue, maxValue);
 
-  /* let styleIntroText = {
-    transform: `translateX(${move}px)`,
-  }; */
-
   let styleIntroText = {
     transform: `scale(${parallaxPercent(
       props.offset,

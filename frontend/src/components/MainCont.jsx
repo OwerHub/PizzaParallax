@@ -15,9 +15,14 @@ function FirstCont() {
 
   const [offset, setOffset] = useState(0);
 
+  const [isPageNr, setPageNr] = useState(0);
+  const [isPageCollector, setPageCollector] = useState([0, 0, 0, 0]);
+
+  console.log("isPageCollector is" + isPageCollector);
+
   useEffect(() => {
     function handleScroll() {
-      setOffset(window.pageYOffset);
+      setOffset(window.pageYOffset.toFixed(2));
     }
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -25,15 +30,21 @@ function FirstCont() {
     };
   }, []);
 
+  console.log("offset" + offset);
   return (
     <div>
       <div className="main-background"></div>
-      <div className="mainHead">sdadasda</div>
+      <div className="mainHead">pagenr is {isPageNr}</div>
       <div className="scrolledDiv">
         <PageOpen offset={offset} fakeBackend={fakeBackend}></PageOpen>
         <PageIntro offset={offset} fakeBackend={fakeBackend}></PageIntro>
         <PizzaList fakeBackend={fakeBackend}></PizzaList>
-        <Tables offset={offset} fakeBackend={fakeBackend}></Tables>
+        <Tables
+          offset={offset}
+          fakeBackend={fakeBackend}
+          setPageCollector={setPageCollector}
+          isPageCollector={isPageCollector}
+        ></Tables>
       </div>
 
       <div className="pizzas"></div>

@@ -25,8 +25,16 @@ function PizzaList(props) {
     }
   }, []);
 
+  function onLoadFunc() {
+    /* console.log("onloasad"); */
+    /*  console.log(
+      "pizzalistOfsetTop: " + document.querySelector(".pizzaListContainer").offsetTop
+    ); */
+    /* console.log(window.innerHeight); */
+  }
+
   return (
-    <div className="pizzaListContainer">
+    <div className="pizzaListContainer" onLoad={onLoadFunc()}>
       <div className="pizzaListHead">Pizzáink</div>
       <div className="pizzaCards">
         {Array.isArray(isPizzaList) &&
