@@ -103,22 +103,25 @@ function TableBook(props) {
 
   return (
     <div className="tableBookContainer">
-      <h2>TableBook</h2>
+      <div className="tableHead">Asztalfoglalás</div>
 
-      <div className="dateContainer">
-        <input
-          type="date"
-          id="dateInput"
-          min={isTomorrow}
-          value={isSelectedDate ? isSelectedDate : isTomorrow}
-          onChange={(e) => {
-            const value = e.target.value;
-            setSelectedDate(value);
-          }}
-        />
+      <div className="reserveTimeContainer">
+        <div className="dateInputContainer">
+          <div className="headRow">Choose a Day</div>
+          <input
+            type="date"
+            id="dateInput"
+            min={isTomorrow}
+            value={isSelectedDate ? isSelectedDate : isTomorrow}
+            onChange={(e) => {
+              const value = e.target.value;
+              setSelectedDate(value);
+            }}
+          />
+        </div>
 
         <div className="startTimeContainer">
-          <h5>start</h5>
+          <div className="headRow">Choose Start Time</div>
           <select
             name="startTime"
             id="startTimeSelect"
@@ -136,7 +139,7 @@ function TableBook(props) {
         </div>
 
         <div className="endTimeContainer">
-          <h5>end</h5>
+          <div className="headRow">Choose end Time</div>
           <select
             name="endTime"
             id="endTimeSelect"
