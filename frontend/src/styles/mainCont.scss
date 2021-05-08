@@ -6,6 +6,7 @@ $red1 : #770d15;
 $red2 : #b4000f;
 $green1: #90a74c;
 $green2: #597718;
+$green3: #7db800;
 
 $darkgreen : #0C120C;
 $black1: #010400;
@@ -359,11 +360,9 @@ padding-top: 1rem;
 
 	.svgContainer{
 		border-radius: 2rem;
-		
-		
-		
 		background-color: rgba($black1, $alpha: 0.5);
 		margin:1rem;
+		transition:  ease-in-out .2s;
 		
 	
 
@@ -390,17 +389,19 @@ padding-top: 1rem;
 				filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, .7));
 			} */
 			svg{
-				fill: transparent;
+			
 				stroke: white;
 				stroke-width: 3;
 				animation: tableAnimate 2s ease-in-out alternate infinite;
 			}
 			@keyframes tableAnimate {
 				0%{
+					fill: rgba($green3, $alpha: .9);
 					stroke-dasharray:0 50% ;
 					stroke-dashoffset:20% ;
 				}
 				100%{
+					fill: rgba($green3, $alpha: .5);
 					stroke-dasharray: 50% 0 ;
 					stroke-dashoffset:-20% ;
 			

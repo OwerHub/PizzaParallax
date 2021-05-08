@@ -298,6 +298,7 @@ body {
   border-radius: 2rem;
   background-color: rgba(1, 4, 0, 0.5);
   margin: 1rem;
+  transition: ease-in-out 0.2s;
 }
 .svgContainer svg {
   height: 30vh;
@@ -318,17 +319,18 @@ body {
   	} */
 }
 .tableAvilable:hover svg {
-  fill: transparent;
   stroke: white;
   stroke-width: 3;
   animation: tableAnimate 2s ease-in-out alternate infinite;
 }
 @keyframes tableAnimate {
   0% {
+    fill: rgba(125, 184, 0, 0.9);
     stroke-dasharray: 0 50%;
     stroke-dashoffset: 20%;
   }
   100% {
+    fill: rgba(125, 184, 0, 0.5);
     stroke-dasharray: 50% 0;
     stroke-dashoffset: -20%;
   }
