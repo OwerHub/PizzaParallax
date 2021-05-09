@@ -1,7 +1,11 @@
+import React, { useState, useEffect } from "react";
+
 import parallaxPercent from "../utils/parallaxPercent";
+import getHight from "../utils/getHeight";
+
 import SvgHead from "./AnimateText";
 
-function pageOpen(props) {
+function PageOpen(props) {
   let minScroll = 1;
   let maxScroll = window.innerHeight;
   let minValue = 0;
@@ -57,6 +61,12 @@ function pageOpen(props) {
     })`, */
   };
 
+  useEffect(() => {
+    let arrayTemp = props.isPageCollector;
+    arrayTemp[0] = getHight(".backgroundPic");
+    props.setPageCollector(arrayTemp);
+  }, []);
+
   return (
     <div className="backgroundPic flexCenter">
       <div className="mainBgColor" style={bgStyle}></div>
@@ -70,4 +80,4 @@ function pageOpen(props) {
   );
 }
 
-export default pageOpen;
+export default PageOpen;

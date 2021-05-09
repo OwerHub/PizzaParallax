@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import TableDraws from "./TableDraws";
 import OrderModal from "./OrderModal";
 
+import getHight from "../utils/getHeight";
+
 function TableBook(props) {
   // itt állítsd be a nyitást és az zárást
   let open = 16;
@@ -9,7 +11,7 @@ function TableBook(props) {
 
   const [isTableAvilable, setTableAvilable] = useState("11111");
 
-  const [isValid, setValid] = useState(true);
+  /*   const [isValid, setValid] = useState(true); */
   const [isModal, setModal] = useState(false);
 
   const [isSelectTable, setSelectTable] = useState(0);
@@ -107,30 +109,9 @@ function TableBook(props) {
 
   // ----- Magasságszámítás
 
-  function getInnerHeight(elm) {
-    let computed = getComputedStyle(elm),
-      padding = parseInt(computed.paddingTop) + parseInt(computed.paddingBottom);
-
-    return elm.clientHeight - padding;
-  }
-
-  function onLoadFunc(selector, type = "height") {
-    const div = document.querySelector(selector);
-
-    if (div !== null && type === "height") {
-      return getInnerHeight(div);
-    }
-    if (div !== null && type === "offsetTop") {
-      return div.offsetTop;
-    }
-  }
-
   useEffect(() => {
-    console.log("height is :" + onLoadFunc(".tableBookContainer"));
-    console.log("offset is :" + onLoadFunc(".tableBookContainer", "offsetTop"));
-
     let arrayTemp = props.isPageCollector;
-    arrayTemp[3] = onLoadFunc(".tableBookContainer");
+    arrayTemp[3] = getHight(".tableBookContainer");
     props.setPageCollector(arrayTemp);
   }, []);
 

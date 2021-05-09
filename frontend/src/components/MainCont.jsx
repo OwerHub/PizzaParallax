@@ -18,7 +18,27 @@ function FirstCont() {
   const [isPageNr, setPageNr] = useState(0);
   const [isPageCollector, setPageCollector] = useState([0, 0, 0, 0]);
 
-  console.log("isPageCollector is" + isPageCollector);
+  useEffect(() => {
+    let point1 = isPageCollector[0];
+    let point2 = isPageCollector[0] + isPageCollector[1];
+    let point3 = isPageCollector[0] + isPageCollector[1] + isPageCollector[2];
+    /* 
+    console.log(point1, point2, point3);
+    console.log(isPageCollector[2]); */
+
+    if (offset < isPageCollector[0]) {
+      setPageNr(1);
+    }
+    if (offset > isPageCollector[0] && offset < point2) {
+      setPageNr(2);
+    }
+    if (offset > point2 && offset < point3) {
+      setPageNr(3);
+    }
+    if (offset > point3) {
+      setPageNr(4);
+    }
+  }, [offset]);
 
   useEffect(() => {
     function handleScroll() {
@@ -29,16 +49,30 @@ function FirstCont() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  console.log("offset" + offset);
+  /*  console.log("isPageCollector is" + isPageCollector); */
+  /* console.log("offset" + offset); */
   return (
     <div>
       <div className="main-background"></div>
       <div className="mainHead">pagenr is {isPageNr}</div>
       <div className="scrolledDiv">
-        <PageOpen offset={offset} fakeBackend={fakeBackend}></PageOpen>
-        <PageIntro offset={offset} fakeBackend={fakeBackend}></PageIntro>
-        <PizzaList fakeBackend={fakeBackend}></PizzaList>
+        <PageOpen
+          offset={offset}
+          fakeBackend={fakeBackend}
+          setPageCollector={setPageCollector}
+          isPageCollector={isPageCollector}
+        ></PageOpen>
+        <PageIntro
+          offset={offset}
+          fakeBackend={fakeBackend}
+          setPageCollector={setPageCollector}
+          isPageCollector={isPageCollector}
+        ></PageIntro>
+        <PizzaList
+          fakeBackend={fakeBackend}
+          setPageCollector={setPageCollector}
+          isPageCollector={isPageCollector}
+        ></PizzaList>
         <Tables
           offset={offset}
           fakeBackend={fakeBackend}

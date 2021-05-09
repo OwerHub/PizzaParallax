@@ -1,5 +1,8 @@
 import { welcomeText } from "../temp/tempdatas";
 import parallaxPercent from "../utils/parallaxPercent";
+import React, { useState, useEffect } from "react";
+
+import getHight from "../utils/getHeight";
 
 function PageIntro(props) {
   let minScroll = 1;
@@ -36,6 +39,12 @@ function PageIntro(props) {
       0
     )}px)`,
   };
+
+  useEffect(() => {
+    let arrayTemp = props.isPageCollector;
+    arrayTemp[1] = getHight(".introduction");
+    props.setPageCollector(arrayTemp);
+  }, []);
 
   return (
     <div className="introduction">
