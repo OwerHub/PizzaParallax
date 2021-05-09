@@ -130,7 +130,7 @@ function OrderModal(props) {
                   }}
                 />
                 <label htmlFor="name" className="form__label">
-                  name
+                  Név
                 </label>
               </div>
 
@@ -165,7 +165,7 @@ function OrderModal(props) {
                 />
 
                 <label htmlFor="phone" className="form__label">
-                  phone
+                  Telefonszám
                 </label>
               </div>
 

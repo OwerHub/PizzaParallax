@@ -70,6 +70,7 @@ function TableBook(props) {
     }
 
     setAllHours(sendArray);
+    console.log("setAllHours Run");
     fetch("http://localhost:8000/tableCheck", {
       method: "POST",
       mode: "cors",
@@ -94,6 +95,7 @@ function TableBook(props) {
     let day = dateNow.getDate() + 1;
     day < 10 && (day = `0${day}`);
     setTomorrow(`${year}-${month}-${day}`);
+    setSelectedDate(`${year}-${month}-${day}`);
   }
 
   useEffect(() => {

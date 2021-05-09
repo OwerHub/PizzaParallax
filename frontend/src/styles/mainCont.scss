@@ -1,9 +1,12 @@
 /* import-ok*/
 
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&display=swap');
 @import "./include";
 
-
+/* font-family: 'Lobster', cursive;
+font-family: 'New Tegomin', serif;
+font-family: 'Noto Sans', sans-serif; */
 
 $red1 : #770d15;
 $red2 : #b4000f;
@@ -34,10 +37,11 @@ $breakpoints:(
 body{
 	overflow-x: hidden;
 /* 	position: relative; */
-scroll-behavior: smooth;
+font-family: 'Noto Sans', sans-serif;
 }
 
 html {
+	scroll-behavior: smooth;
 }
 
 .flexCenter{
@@ -85,7 +89,7 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 		margin: 00 0 0;
 		height: 6.5vh;
 		width: 250px;
-		background-color: red;
+	/* 	background-color: red; */
 	
 		overflow: hidden;
 	
@@ -111,11 +115,14 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 
 
 .scrolledDiv{
-	padding: 5vh;
+	padding: 4vw;
 	
 	overflow: hidden;
 /* 	background-color: red; */
 	position: relative;
+	@include media("<500px") {
+		padding: 0;
+}
 	
 
 
@@ -240,10 +247,14 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 	border-radius: 4px;
 	border-radius: 5px;
 	border: 3px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	.pizzaName{
 		font-size: 130%;
 		color: whitesmoke;
 		font-weight: bold;
+		min-width: 200px;
 		
 	
 /* 		background-color: darken($red1, $amount: 8); */
@@ -251,6 +262,8 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 		border: 2px solid white
 	}
 	.pizzaToppings{
+	font-family: 'Pangolin', cursive; 
+		font-weight: lighter; 
 	  padding: 0 10px;
 		text-align: left;
 		width: 80%;
@@ -259,17 +272,21 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 		align-items: center;
 		min-height: 2.8rem;
 		
-	
+		
 	}
 	.pizzaPrices{
+	
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
-		padding: 0 10px;;
+		padding: 0 10px;
+		/* background-color: red; */
+		margin-bottom: 2px;
+		
 	
 		div{
 			min-width: 110px;
-			margin: 8px 5px;
+			margin: 5px 5px;
 			padding:  2px 5px;
 			border-radius: .5rem;
 			border: 2px solid black;
@@ -296,16 +313,32 @@ padding-top: 1rem;
 	}
 
 	.reserveTimeContainer{
-		height: 10vh;
+		height: 12vh;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		padding: 0 0 10px 0;
-
+		padding: 5px 0 15px 0;
+		
 		background-color: rgba($black1, $alpha: .3);
 		color: whitesmoke;
 		border: 2px solid white;
 		border-radius: 15px;
+		margin: 0 0 5vh;
+		@include media("<769px") {
+			padding: 0 0 15px 0;
+			height: auto;
+			flex-direction: column;
+			width: 80%;
+			margin: 0 auto 5vh ;
+			/* background-color: #bad; */
+			padding: 10px 0 ;
+			min-width: 250px;
+		}
+		div{
+			@include media("<769px") {
+			margin: 15px;
+			}
+		}
 		.headRow{
 			margin: 0 0 10px 0;
 			font-size: 150%;
@@ -318,6 +351,8 @@ padding-top: 1rem;
 			transform: scale(1.5);
 			font-weight: bolder;
 			text-align: center;
+		
+
 		}
 		select{
 			width: 50%;
@@ -343,12 +378,10 @@ padding-top: 1rem;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		.tryblock{
-			height: 30vh;
-			width: 30vw;
-			background-color: green;
-			margin: 10px;
-		}
+		/* background-color: red; */
+		@include media("<769px") {
+			margin-top: 5rem;
+			}
 	}
 
 	
@@ -362,14 +395,18 @@ padding-top: 1rem;
 		background-color: rgba($black1, $alpha: 0.5);
 		margin:1rem;
 		transition:  ease-in-out .2s;
-		
+	
 	
 
 		svg{
-			
-			height: 30vh;
+			height: 250px;
 			margin: 15px;
-	
+			@include media("<769px"  , ">600px") {
+				height: 200px;
+
+				}
+		
+			
 		}
 	}
 
@@ -440,7 +477,18 @@ $gray: #9b9b9b;
   padding: 15px 0 0;
   margin-top: 10px;
   width: 50%;
-
+		@include media("<=500px") {
+				min-width: 80%;
+				
+		}
+		@include media("<=600px" , ">500px") {
+			min-width: 70%;
+			
+		}
+		@include media("<=700px" , ">600px") {
+			min-width: 60%;
+			
+		}
 
 }
 
@@ -530,7 +578,10 @@ $gray: #9b9b9b;
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
-		// media-query : none
+		@include media("<=992px") {
+			display: none;
+	}
+
 		.pictureCover{
 			height: 100%;
 			width: 100%;
@@ -544,15 +595,24 @@ $gray: #9b9b9b;
 		/* height: 45vw;
 		width: 45vw; */
 		padding: 1vw;
-		/* // height -widht : media query */
+		@include media(">=992px") {
+			height: 74vh;
+		width: 45vw;
+	}
+	@include media("<=992px") {
+		height: 80vh;
+		width: 80vw;
+		max-width: 600px;
+}
 		h3{
 			margin: 5px 0 0 ;
 			font-size: 2rem;
 		}
 		h2{
 			font-size: 1.2rem;
-			&:nth-child(2){
-		/* 		background-color: red; */
+			&:nth-child(3){
+				/* ez miért lett három.... */
+			/* 	background-color: red;  */
 				margin: 1.5vh 0 0   ;
 			}
 		}
@@ -567,11 +627,12 @@ $gray: #9b9b9b;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
-		@include media("<=400px") {
-
+		@include media("<=500px") {
 			height: 70%;
-	
-	}
+	};
+/* 	@include media("<=500px" , ">400") {
+		height: 60%;
+} */
 	/* 	input{
 			width: 30%;
 		} */
@@ -602,8 +663,8 @@ $gray: #9b9b9b;
 
 .modalCloseButton{
 	position: absolute;
-	top: 1vh;
-	right: 2vw;
+	top: 1.3vh;
+	right: 2.5vw;
 	height: 30px;
 	width: 30px;
 	background: none;
@@ -612,10 +673,25 @@ $gray: #9b9b9b;
 	text-shadow: 0px 0px 1px white;
 	font-weight: 800;
 	color: transparent;
+
 	cursor: pointer;
+	transition: color .5s;
+	@include media("<=500px") {
+		font-weight: 400;
+		position: relative;
+		margin-bottom: 2rem;
+		height: 15px;
+		width: 15px;
+}
+
+&:hover{
+	color: red;
+}
 }
 
 /* --------------MEDIA QUERY --------------------- */
+
+/* ezeket majd később átalakítani inculde-ra */
 @media only screen and (max-width: 768px) {
 	.pizzaCards{
 	 padding: 0 0rem;
@@ -661,13 +737,14 @@ $gray: #9b9b9b;
 
  .pizzaCardContainer{
 	margin: 10px;
+	
 	.pizzaToppings{
 		justify-content: start;
 		margin: 8px 0 10px 0;
 	}
  .pizzaName{
 	padding: 2px 2px 5px;
-	width: 40%;
+	width: 45%;
 	transform: translate(-10px, -5px) rotate(-3deg);
 }
  }
@@ -676,40 +753,40 @@ $gray: #9b9b9b;
 /* ------ */
 
 @media only screen and (max-width: 992px){
-	.pictureDiv{
+	/* .pictureDiv{
 		display: none;
-	}
-	.modalInputDiv{
+	} */
+/* 	.modalInputDiv{
 		height: 80vh;
 		width: 80vw;
 		max-width: 600px;
-	 }
+	 } */
 }
 
 /* ------ */
 
-@media only screen and (min-width: 993px){
-	.modalInputDiv{
+@media only screen and (min-width: 992px){
+/* 	.modalInputDiv{
 		height: 74vh;
 		width: 45vw;
-	 }
+	 } */
 }
 
 /* ----- */
-@media only screen and (max-width:500px){
+/* @media only screen and (max-width:500px){
 	.form__group{
 	
 		min-width: 80%;
 	}
-}
+} */
 
-@media only screen and (max-width:400px){
+/* @media only screen and (max-width:400px){
 	.modalCloseButton{
 		position: relative;
 	}
 
 
-}
+} */
 
 
 

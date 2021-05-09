@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* import-ok*/
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&display=swap");
+/* font-family: 'Lobster', cursive;
+font-family: 'New Tegomin', serif;
+font-family: 'Noto Sans', sans-serif; */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +15,10 @@
 body {
   overflow-x: hidden;
   /* 	position: relative; */
+  font-family: "Noto Sans", sans-serif;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
@@ -53,7 +61,7 @@ body {
   margin: 0 0 0;
   height: 6.5vh;
   width: 250px;
-  background-color: red;
+  /* 	background-color: red; */
   overflow: hidden;
 }
 .mainHead .headCenter .scrollBanner {
@@ -70,7 +78,7 @@ body {
 }
 
 .scrolledDiv {
-  padding: 5vh;
+  padding: 4vw;
   overflow: hidden;
   /* 	background-color: red; */
   position: relative;
@@ -79,6 +87,11 @@ body {
   scroll-snap-type: mandatory;
    scroll-snap-points-y: repeat(100vh);
    scroll-snap-type: y mandatory; */
+}
+@media (max-width: 499px) {
+  .scrolledDiv {
+    padding: 0;
+  }
 }
 
 /* első képernyő */
@@ -166,16 +179,22 @@ body {
   border-radius: 4px;
   border-radius: 5px;
   border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .pizzaCardContainer .pizzaName {
   font-size: 130%;
   color: whitesmoke;
   font-weight: bold;
+  min-width: 200px;
   /* 		background-color: darken($red1, $amount: 8); */
   background-color: #010400;
   border: 2px solid white;
 }
 .pizzaCardContainer .pizzaToppings {
+  font-family: "Pangolin", cursive;
+  font-weight: lighter;
   padding: 0 10px;
   text-align: left;
   width: 80%;
@@ -189,10 +208,12 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 0 10px;
+  /* background-color: red; */
+  margin-bottom: 2px;
 }
 .pizzaCardContainer .pizzaPrices div {
   min-width: 110px;
-  margin: 8px 5px;
+  margin: 5px 5px;
   padding: 2px 5px;
   border-radius: 0.5rem;
   border: 2px solid black;
@@ -213,15 +234,33 @@ body {
   background-color: #770d15;
 }
 .tableBookContainer .reserveTimeContainer {
-  height: 10vh;
+  height: 12vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 0 10px 0;
+  padding: 5px 0 15px 0;
   background-color: rgba(1, 4, 0, 0.3);
   color: whitesmoke;
   border: 2px solid white;
   border-radius: 15px;
+  margin: 0 0 5vh;
+}
+@media (max-width: 768px) {
+  .tableBookContainer .reserveTimeContainer {
+    padding: 0 0 15px 0;
+    height: auto;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto 5vh;
+    /* background-color: #bad; */
+    padding: 10px 0;
+    min-width: 250px;
+  }
+}
+@media (max-width: 768px) {
+  .tableBookContainer .reserveTimeContainer div {
+    margin: 15px;
+  }
 }
 .tableBookContainer .reserveTimeContainer .headRow {
   margin: 0 0 10px 0;
@@ -253,12 +292,12 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  /* background-color: red; */
 }
-.tableBookContainer .tablesContainer .tryblock {
-  height: 30vh;
-  width: 30vw;
-  background-color: green;
-  margin: 10px;
+@media (max-width: 768px) {
+  .tableBookContainer .tablesContainer {
+    margin-top: 5rem;
+  }
 }
 
 .svgContainer {
@@ -268,8 +307,13 @@ body {
   transition: ease-in-out 0.2s;
 }
 .svgContainer svg {
-  height: 30vh;
+  height: 250px;
   margin: 15px;
+}
+@media (max-width: 768px) and (min-width: 601px) {
+  .svgContainer svg {
+    height: 200px;
+  }
 }
 
 .tableAvilable {
@@ -316,6 +360,21 @@ body {
   padding: 15px 0 0;
   margin-top: 10px;
   width: 50%;
+}
+@media (max-width: 500px) {
+  .form__group {
+    min-width: 80%;
+  }
+}
+@media (max-width: 600px) and (min-width: 501px) {
+  .form__group {
+    min-width: 70%;
+  }
+}
+@media (max-width: 700px) and (min-width: 601px) {
+  .form__group {
+    min-width: 60%;
+  }
 }
 
 .form__field {
@@ -395,6 +454,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+@media (max-width: 992px) {
+  .modalOut .pictureDiv {
+    display: none;
+  }
+}
 .modalOut .pictureDiv .pictureCover {
   height: 100%;
   width: 100%;
@@ -406,7 +470,19 @@ body {
   /* height: 45vw;
   width: 45vw; */
   padding: 1vw;
-  /* // height -widht : media query */
+}
+@media (min-width: 992px) {
+  .modalOut .modalInputDiv {
+    height: 74vh;
+    width: 45vw;
+  }
+}
+@media (max-width: 992px) {
+  .modalOut .modalInputDiv {
+    height: 80vh;
+    width: 80vw;
+    max-width: 600px;
+  }
 }
 .modalOut .modalInputDiv h3 {
   margin: 5px 0 0;
@@ -415,8 +491,9 @@ body {
 .modalOut .modalInputDiv h2 {
   font-size: 1.2rem;
 }
-.modalOut .modalInputDiv h2:nth-child(2) {
-  /* 		background-color: red; */
+.modalOut .modalInputDiv h2:nth-child(3) {
+  /* ez miért lett három.... */
+  /* 	background-color: red;  */
   margin: 1.5vh 0 0;
 }
 .modalOut form {
@@ -429,11 +506,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  /* 	@include media("<=500px" , ">400") {
+  		height: 60%;
+  } */
   /* 	input{
   		width: 30%;
   	} */
 }
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .modalOut form {
     height: 70%;
   }
@@ -461,8 +541,8 @@ body {
 
 .modalCloseButton {
   position: absolute;
-  top: 1vh;
-  right: 2vw;
+  top: 1.3vh;
+  right: 2.5vw;
   height: 30px;
   width: 30px;
   background: none;
@@ -472,9 +552,23 @@ body {
   font-weight: 800;
   color: transparent;
   cursor: pointer;
+  transition: color 0.5s;
+}
+@media (max-width: 500px) {
+  .modalCloseButton {
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 2rem;
+    height: 15px;
+    width: 15px;
+  }
+}
+.modalCloseButton:hover {
+  color: red;
 }
 
 /* --------------MEDIA QUERY --------------------- */
+/* ezeket majd később átalakítani inculde-ra */
 @media only screen and (max-width: 768px) {
   .pizzaCards {
     padding: 0 0rem;
@@ -514,40 +608,42 @@ body {
   }
   .pizzaCardContainer .pizzaName {
     padding: 2px 2px 5px;
-    width: 40%;
+    width: 45%;
     transform: translate(-10px, -5px) rotate(-3deg);
   }
 }
 /* ------ */
 @media only screen and (max-width: 992px) {
-  .pictureDiv {
-    display: none;
-  }
-
-  .modalInputDiv {
-    height: 80vh;
-    width: 80vw;
-    max-width: 600px;
-  }
+  /* .pictureDiv{
+  	display: none;
+  } */
+  /* 	.modalInputDiv{
+  		height: 80vh;
+  		width: 80vw;
+  		max-width: 600px;
+  	 } */
 }
 /* ------ */
-@media only screen and (min-width: 993px) {
-  .modalInputDiv {
-    height: 74vh;
-    width: 45vw;
-  }
+@media only screen and (min-width: 992px) {
+  /* 	.modalInputDiv{
+  		height: 74vh;
+  		width: 45vw;
+  	 } */
 }
 /* ----- */
-@media only screen and (max-width: 500px) {
-  .form__group {
-    min-width: 80%;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .modalCloseButton {
-    position: relative;
-  }
-}
+/* @media only screen and (max-width:500px){
+	.form__group{
+
+		min-width: 80%;
+	}
+} */
+/* @media only screen and (max-width:400px){
+	.modalCloseButton{
+		position: relative;
+	}
+
+
+} */
 .modify {
   background-color: green;
 }
