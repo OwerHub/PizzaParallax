@@ -91,7 +91,7 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 	height: auto;
 	width: 100%;
 	position: absolute;
-	background-color: black;
+	background-color: rgb(27, 27, 27);
 	color: whitesmoke;
 	display: flex;
 	align-items: center;
@@ -121,6 +121,10 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 	align-items: center;
 	justify-content: center;
 	padding: 0 2rem;
+ 	@include media("<610px"  , ) {
+	padding: 0;
+		} 
+
 	
 	.contactButton{
 		min-width: 100px;
@@ -133,11 +137,19 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 		
 		}
 	}
+	.hideButton{
+		@extend .contactButton;
+	
+		@include media("<610px"  , ) {
+		display: none;
+				}
+		
+	}
 	.headCenter{
 		margin: 0 auto;
 		height: 6.5vh;
 		width: 250px;
-	/* 	background-color: red; */
+	 	/* background-color: red;  */
 	
 		overflow: hidden;
 	
@@ -152,8 +164,15 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 				min-width: 250px;
 				font-size: 150%;
 				text-align: center;
-				padding: 5px 0 0 0 ;
+				padding: 10px 0 0 0 ;
 				font-weight: bolder;
+				@include media("<610px"  , ) {
+					padding: 10px 0 0  1rem;
+					text-align: left;
+						} 
+				@include media("<330px"  , ) {
+							font-size: 120%;
+								} 
 				
 				
 			}
@@ -221,6 +240,51 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 		width: 100vw;
 		z-index: 5;
 		flex-direction: column;
+		.upHeader{
+		
+			@include media("<850px"  , ">600px" ) {
+				
+				font-size: 7em;
+        transform: translateY(-25vh);
+			}
+			@include media("<=600px"  , ">450px" ) {
+				font-size: 6em;
+        transform: translateY(-20vh);
+			}
+			@include media("<=450px"  , ">350px" ) {
+			
+				font-size: 6em;
+        transform: translateY(-16vh);
+			}
+			@include media("<=350px"  , ">100px" ) {
+			
+				font-size: 25vw;
+        transform: translateY(-16vh);
+			}
+			
+		}
+		.downHeader{
+			@include media("<850px"  , ">600px" ) {
+
+				font-size: 7em;
+        transform: translateY(25vh);
+        }
+				@include media("<=600px"  , ">450px" ) {
+					font-size: 7em;
+					transform: translateY(20vh);
+				}
+				@include media("<=450px"  , ">350px" ) {
+				
+					font-size: 7em;
+					transform: translateY(16vh);
+				}
+				@include media("<=350px"  , ">100px" ) {
+				
+					font-size: 27vw;
+					transform: translateY(16vh);
+				}
+
+		}
 		div{
 			
 			transform: translateY(-10%);

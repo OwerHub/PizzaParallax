@@ -10,7 +10,9 @@ function PageOpen(props) {
   let maxScroll = window.innerHeight;
   let minValue = 0;
   let maxValue = window.innerWidth;
-  let move = parallaxPercent(props.offset, minScroll, maxScroll, minValue, maxValue);
+  /* let move = parallaxPercent(props.offset, minScroll, maxScroll, minValue, maxValue); */
+
+  const [isDistance, setDistance] = useState(0);
 
   let nameConteinerStyle = {
     /* top: `${window.innerHeight / 2}px`, */
@@ -37,7 +39,11 @@ function PageOpen(props) {
     display: `${props.offset > window.innerHeight ? "none" : "inherit"}`,
   };
 
-  /* let try = parallaxPercent(porps.offset, innerHeight * 0.4, maxScroll, 0, 100); */
+  useEffect(() => {
+    850 - window.innerWidth > 0 && setDistance(850 - window.innerWidth);
+  }, []);
+
+  console.log("Distance : " + isDistance);
 
   let pizzaStyle = {
     /* transform: `translateY(${parallaxPercent(
@@ -72,8 +78,8 @@ function PageOpen(props) {
       <div className="mainBgColor" style={bgStyle}></div>
       <div className="pizzaPic" style={pizzaStyle}></div>
       <div className="nameContainer flexCenter" style={nameConteinerStyle}>
-        <div>Parallax</div>
-        <div>Pizza</div>
+        <div className="upHeader">Parallax</div>
+        <div className="downHeader">Pizza</div>
         {/*   <SvgHead></SvgHead> */}
       </div>
     </div>

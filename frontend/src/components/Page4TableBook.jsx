@@ -70,7 +70,7 @@ function TableBook(props) {
     }
 
     setAllHours(sendArray);
-    console.log("setAllHours Run");
+
     fetch("http://localhost:8000/tableCheck", {
       method: "POST",
       mode: "cors",

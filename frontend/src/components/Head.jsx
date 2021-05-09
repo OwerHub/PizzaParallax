@@ -4,14 +4,14 @@ import Conatcticon from "../img/contact-3018.svg";
 let headers = ["Üdvözlünk", "Rólunk", "Pizzáink", "Asztalfoglalás"];
 
 function PageHead(props) {
-  const [isContact, setContact] = useState(true);
+  const [isContact, setContact] = useState(false);
 
   let contactStyle = {};
 
   if (isContact) {
     contactStyle = { transform: "translateY(7vh) " };
   } else {
-    contactStyle = { transform: "translateY(-3vh)" };
+    contactStyle = { transform: "translateY(-5vh)" };
   }
 
   let bannerStyle = {
@@ -19,7 +19,6 @@ function PageHead(props) {
   };
 
   function hideContact() {
-    console.log("kontakt");
     setContact(!isContact);
   }
 
@@ -27,8 +26,8 @@ function PageHead(props) {
     <div className="mainCont">
       <div className="mainNameWrapper">
         <div className="mainHead">
-          <div className="contactButton" onClick={() => hideContact()}>
-            <img src={Conatcticon} alt="React Logo" height="30px" />
+          <div className="hideButton" style={{ color: "black" }}>
+            kap
           </div>
           <div className="headCenter">
             <div className="scrollBanner" style={bannerStyle}>
@@ -37,8 +36,8 @@ function PageHead(props) {
               ))}
             </div>
           </div>
-          <div className="contactButton" style={{ color: "black" }}>
-            kap
+          <div className="contactButton" onClick={() => hideContact()}>
+            <img src={Conatcticon} alt="React Logo" height="30px" />
           </div>
         </div>
         <div className="contactsHead" style={contactStyle}>
