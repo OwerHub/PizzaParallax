@@ -5,11 +5,14 @@ import React, { useState, useEffect } from "react";
 import getHight from "../utils/getHeight";
 
 function PageIntro(props) {
-  let minScroll = 1;
+  /*   let minScroll = 1; */
+  /*   let minValue = window.innerWidth * -1;
+  let maxValue = window.innerWidth; */
+  /*  let move = parallaxPercent(props.offset, minScroll, maxScroll, minValue, maxValue); */
+
   let maxScroll = window.innerHeight * 0.8;
-  let minValue = window.innerWidth * -1;
-  let maxValue = window.innerWidth;
-  let move = parallaxPercent(props.offset, minScroll, maxScroll, minValue, maxValue);
+
+  const [isTextHeight, setTextHeight] = useState(100);
 
   let styleIntroText = {
     transform: `scale(${parallaxPercent(
@@ -19,13 +22,13 @@ function PageIntro(props) {
       25,
       1
     )})
-    translate(0px , ${parallaxPercent(
-      props.offset,
-      window.innerHeight * 1.0,
-      window.innerHeight * 2.0,
-      0 - 200,
-      window.innerHeight * 1 - 200
-    )}px )  `,
+   /*  translateY( ${parallaxPercent(
+     props.offset,
+     window.innerHeight * 1.0 * 0.8,
+     window.innerHeight * 2.0,
+     0 - 200,
+     window.innerHeight * 1.2 - 200
+   )}px ) */  `,
 
     opacity: `${
       parallaxPercent(props.offset, window.innerHeight / 2, maxScroll, 0, 100) / 100
@@ -40,6 +43,27 @@ function PageIntro(props) {
     )}px)`,
   };
 
+  // kis saját megírt Media Query (tudom hogy SASS-al is lehet)
+  useEffect(() => {
+    let width = window.innerWidth;
+    let calcedHeight = 100;
+    if (width < 600) {
+      let overflw = 600 - width;
+      calcedHeight = calcedHeight + overflw * 0.45;
+    }
+
+    setTextHeight(calcedHeight);
+  }, []);
+
+  const textContainerStyle = {
+    height: `${isTextHeight}vh`,
+  };
+
+  const paragraphStyle = {
+    fontSize: "130%",
+    width: "80%",
+  };
+
   useEffect(() => {
     let arrayTemp = props.isPageCollector;
     arrayTemp[1] = getHight(".introduction");
@@ -47,9 +71,9 @@ function PageIntro(props) {
   }, []);
 
   return (
-    <div className="introduction">
+    <div className="introduction" style={textContainerStyle}>
       <div className="descriptionContainer flexCenter" style={styleIntroText}>
-        <p>{welcomeText}</p>
+        <p style={paragraphStyle}>{welcomeText}</p>
       </div>
     </div>
   );

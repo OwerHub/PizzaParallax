@@ -10,6 +10,7 @@
 body {
   overflow-x: hidden;
   /* 	position: relative; */
+  scroll-behavior: smooth;
 }
 
 .flexCenter, .loadCover .loadContainer, .sucessCover .loadContainer, .sucessCover .sucessContainer, .loadCover, .sucessCover, .mainHead {
@@ -120,32 +121,19 @@ body {
 
 /*-------------- második képernyő ----------------------*/
 .introduction {
-  scroll-snap-align: start;
-  height: 100vh;
-  /* 	background-image: url("../img/304643.jpg");  */
-  /* 	background-repeat: no-repeat;
-  	background-size: cover;
-  	position: relative;
-  	overflow: hidden;
-  	transform: scaleY(-1); */
-  height: 100vh;
-  /* background-color: $darkgreen; */
+  min-height: 100vh;
   color: whitesmoke;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /* 	overflow: hidden; */
 }
 
 .descriptionContainer {
   position: absolute;
   width: 99vw;
 }
-.descriptionContainer p {
-  width: 50%;
-}
-
 /* -----------------harmadik képernyő ----------------------*/
 .pizzaListContainer {
   padding: 10px;

@@ -23,6 +23,10 @@ $yellow2-brown: #EAC435;
 body{
 	overflow-x: hidden;
 /* 	position: relative; */
+scroll-behavior: smooth;
+}
+
+html {
 }
 
 .flexCenter{
@@ -159,32 +163,26 @@ body{
 /*-------------- második képernyő ----------------------*/
 
 .introduction{
-	 scroll-snap-align: start; 
-	height: 100vh;
-/* 	background-image: url("../img/304643.jpg");  */
-/* 	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	overflow: hidden;
-	transform: scaleY(-1); */
+
+	min-height: 100vh;
+
 	
-	height: 100vh;
-	/* background-color: $darkgreen; */
+
 	color: whitesmoke ;
 	position: relative ;
 	display: flex;
 
 	align-items: center;
 	justify-content: center;
-	overflow: hidden;
+/* 	overflow: hidden; */
 
 }
 .descriptionContainer{
 	position: absolute;
 	width: 99vw;
-	
+
 	p{
-		width: 50%;
+	
 	}
 }
 

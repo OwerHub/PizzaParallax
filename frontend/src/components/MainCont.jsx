@@ -49,7 +49,7 @@ function FirstCont() {
   }, []);
 
   /*  console.log("isPageCollector is" + isPageCollector); */
-  /* console.log("offset" + offset); */
+  /*  console.log("offset" + offset); */
   return (
     <div>
       <div className="main-background"></div>
