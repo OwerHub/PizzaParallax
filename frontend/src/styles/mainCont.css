@@ -22,7 +22,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.flexCenter, .loadCover .loadContainer, .sucessCover .loadContainer, .sucessCover .sucessContainer, .modalContainer, .mainHead {
+.flexCenter, .loadCover .loadContainer, .sucessCover .loadContainer, .sucessCover .sucessContainer, .modalContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,16 +49,65 @@ html {
   overflow: hidden;
 }
 
-.mainHead {
+.mainCont {
   position: fixed;
   width: 100%;
+  z-index: 80;
+}
+.mainCont .mainNameWrapper {
+  position: relative;
+  width: 100%;
   height: 7vh;
+}
+
+.contactsHead {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  background-color: black;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.5s ease-in-out;
+}
+@media (max-width: 599px) {
+  .contactsHead {
+    flex-direction: column;
+  }
+}
+.contactsHead span {
+  padding: 0.5rem 1rem;
+}
+@media (max-width: 599px) {
+  .contactsHead span {
+    padding: 0.2rem 1rem;
+  }
+}
+
+.mainHead {
+  height: 7vh;
+  position: absolute;
+  width: 100%;
   background-color: #010400;
   z-index: 55;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+.mainHead .contactButton {
+  min-width: 100px;
+  color: rgba(245, 245, 245, 0.5);
+  cursor: pointer;
+}
+.mainHead .contactButton img {
+  transform: translateY(5px);
+  z-index: 100;
 }
 .mainHead .headCenter {
-  margin: 0 0 0;
+  margin: 0 auto;
   height: 6.5vh;
   width: 250px;
   /* 	background-color: red; */
