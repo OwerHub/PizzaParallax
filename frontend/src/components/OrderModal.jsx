@@ -88,6 +88,9 @@ function OrderModal(props) {
     console.log(sendData);
   };
 
+  console.log(props.date);
+  //------ Visszajelzés
+
   return (
     <div className="modalContainer">
       {isLoading ? (
@@ -96,11 +99,25 @@ function OrderModal(props) {
         <SucessModal></SucessModal>
       ) : (
         <div className="modalOut">
-          <div className="pictureDiv"></div>
+          <div className="pictureDiv">
+            <div className="pictureCover"></div>
+          </div>
           <div className="modalInputDiv">
+            <button className="modalCloseButton" onClick={() => closeModal()}>
+              X
+            </button>
+
             <h3>Asztalfoglalás</h3>
+            <h2>{`${props.date[0].substring(0, 4)}.${props.date[0].substring(
+              5,
+              7
+            )}.${props.date[0].substring(8, 10)} napon`}</h2>
+            <h2>{`${props.date[0].substring(11, 13)} és ${props.date[
+              props.date.length - 1
+            ].substring(11, 13)}  óra között`}</h2>
+
             <form action="something">
-              <div class="form__group field">
+              <div className="form__group field">
                 <input
                   type="text"
                   className="nameInput form__field"
@@ -112,12 +129,12 @@ function OrderModal(props) {
                     setNameVal(value);
                   }}
                 />
-                <label htmlFor="name" class="form__label">
+                <label htmlFor="name" className="form__label">
                   name
                 </label>
               </div>
 
-              <div class="form__group field">
+              <div className="form__group field">
                 <input
                   type="email"
                   className="emailInput form__field"
@@ -129,12 +146,12 @@ function OrderModal(props) {
                     setMailVal(value);
                   }}
                 />
-                <label htmlFor="mail" class="form__label">
+                <label htmlFor="mail" className="form__label">
                   mail
                 </label>
               </div>
 
-              <div class="form__group field">
+              <div className="form__group field">
                 <input
                   type="tel"
                   className="phoneInput form__field"
@@ -147,16 +164,13 @@ function OrderModal(props) {
                   }}
                 />
 
-                <label htmlFor="phone" class="form__label">
+                <label htmlFor="phone" className="form__label">
                   phone
                 </label>
               </div>
 
               <button type="submit" onClick={submitFetch} disabled={!isValid}>
                 Submit
-              </button>
-              <button className="modalCloseButton" onClick={() => closeModal()}>
-                X
               </button>
             </form>
           </div>

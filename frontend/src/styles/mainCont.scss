@@ -1,6 +1,9 @@
 /* import-ok*/
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&display=swap');
+@import "./include";
+
+
 
 $red1 : #770d15;
 $red2 : #b4000f;
@@ -14,9 +17,17 @@ $white1: #FFFBFC;
 $yellow-brown: #F0C987;
 $yellow2-brown: #EAC435;
 
+
+$breakpoints:(
+	"medium": 600px,
+	"large": 900px
+);
+
+
 *{
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 /* általános style-ok */
@@ -33,6 +44,7 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
 }
 
 .marginCenter{
@@ -46,6 +58,8 @@ html {
 }
 
 
+$breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
+
 .main-background{
 	height: 100vh;
 	width: 100vmax;
@@ -55,6 +69,7 @@ html {
 		background-size: cover;
 		position: fixed;
 		overflow: hidden;
+	
 }
 
 .mainHead{
@@ -70,8 +85,10 @@ html {
 		margin: 00 0 0;
 		height: 6.5vh;
 		width: 250px;
+		background-color: red;
 	
 		overflow: hidden;
+	
 		
 		.scrollBanner{
 			display: flex;
@@ -261,57 +278,7 @@ html {
 	}
 }
 
-/* --------------MEDIA QUERY --------------------- */
-@media only screen and (max-width: 768px) {
-	.pizzaCards{
-	 padding: 0 0rem;
-	 display: grid;
-	 grid-template-columns: repeat(1, 1fr);
-	}
 
-	.pizzaCardContainer{	
-		margin: 20px 10px;
-	.pizzaToppings{
-		justify-content: center;
-
-			margin: 0 auto 10px auto;
-			
-		}
-	.pizzaName{
-		width: 70%;
-		padding: 5px 2px 10px;
-		transform: translate(0, -25%) rotate(-1deg);
-		max-width: 300px;
-		margin: 0 auto;
-	}
-}
- }
-
-@media only screen and (min-width: 769px) {
- .pizzaCards{
-	padding: 0 1vw;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
- }
-
- .pizzaCardContainer{
-	margin: 10px;
-	.pizzaToppings{
-		justify-content: start;
-		margin: 8px 0 10px 0;
-	}
- .pizzaName{
-	padding: 2px 2px 5px;
-	width: 40%;
-	transform: translate(-10px, -5px) rotate(-3deg);
-}
- }
-}
-
-
-.modify{
-	background-color: green;
-}
 
 /* --------------------negyedik képernyő  asztalok-------------*/
 
@@ -534,43 +501,84 @@ $gray: #9b9b9b;
 
 
 /* ------------- */
-.modalOut{
+.modalContainer{
 	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0vh;
+	left: 0vw;
+	background-color: rgba($black1, $alpha: .8);
+	@extend .flexCenter;
+	z-index: 60;
+
+}
+
+.modalOut{
+	
 	
 	display: flex;
-	top: 10vh;
-	left: 6vw;
+	top: 7vw;
+	left: 3vw;
+
 	
 	.pictureDiv{
 		background-color: $red1;
-		height: 70vh;
-		width: 40vw;
-		padding: 1vw;
+		height: 74vh;
+		width: 45vw;
+	
+		background-image: url("../img/PizzaTableCrop.jpg"); 
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		// media-query : none
+		.pictureCover{
+			height: 100%;
+			width: 100%;
+			background-color: rgba($red1, $alpha: .5);
+		}
 	}
 	.modalInputDiv{
 		background-color: $green1;
 		position: relative;
-		height: 70vh;
-		width: 40vw;
+		
+		/* height: 45vw;
+		width: 45vw; */
 		padding: 1vw;
+		/* // height -widht : media query */
 		h3{
+			margin: 5px 0 0 ;
 			font-size: 2rem;
+		}
+		h2{
+			font-size: 1.2rem;
+			&:nth-child(2){
+		/* 		background-color: red; */
+				margin: 1.5vh 0 0   ;
+			}
 		}
 	}
 	form{
-		
-		/* background-color: $red2; */
-		margin-top: 3vh;
+		/* 
+		  background-color: $red2;     */
+		height: 75%;
+		margin-top: 1vh;
 		padding: 1vw;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: space-around;
+		@include media("<=400px") {
+
+			height: 70%;
+	
+	}
 	/* 	input{
 			width: 30%;
 		} */
+		
 		button[type="submit"]{
-			margin: 5vh 0 0 0;
-			padding: 10px 20px;	
+			margin-top: auto;
+			padding: 1vh 1vw;	
 			border-radius: 2px;
 			border: none;
 			background: none;
@@ -588,39 +596,149 @@ $gray: #9b9b9b;
 				border-left: 2px solid black;
 				color: grey;			}
 		}
-		.modalCloseButton{
-			position: absolute;
-			top: 1vh;
-			right: 2vw;
-			height: 30px;
-			width: 30px;
-			background: none;
-			border:none;
-			font-size: 250%;
-			text-shadow: 0px 0px 1px white;
-			font-weight: 800;
-			color: transparent;
-			cursor: pointer;
-		}
+		
 	}
 }
+
+.modalCloseButton{
+	position: absolute;
+	top: 1vh;
+	right: 2vw;
+	height: 30px;
+	width: 30px;
+	background: none;
+	border:none;
+	font-size: 250%;
+	text-shadow: 0px 0px 1px white;
+	font-weight: 800;
+	color: transparent;
+	cursor: pointer;
+}
+
+/* --------------MEDIA QUERY --------------------- */
+@media only screen and (max-width: 768px) {
+	.pizzaCards{
+	 padding: 0 0rem;
+	 display: grid;
+	 grid-template-columns: repeat(1, 1fr);
+	}
+
+	.pizzaCardContainer{	
+		margin: 20px 10px;
+	.pizzaToppings{
+		justify-content: center;
+
+			margin: 0 auto 10px auto;
+			
+		}
+	.pizzaName{
+		width: 70%;
+		padding: 5px 2px 10px;
+		transform: translate(0, -25%) rotate(-1deg);
+		max-width: 300px;
+		margin: 0 auto;
+	}
+}
+
+ 
+
+ 
+ }
+
+
+
+/* //----- */
+
+
+
+
+@media only screen and (min-width: 769px) {
+ .pizzaCards{
+	padding: 0 1vw;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+ }
+
+ .pizzaCardContainer{
+	margin: 10px;
+	.pizzaToppings{
+		justify-content: start;
+		margin: 8px 0 10px 0;
+	}
+ .pizzaName{
+	padding: 2px 2px 5px;
+	width: 40%;
+	transform: translate(-10px, -5px) rotate(-3deg);
+}
+ }
+}
+
+/* ------ */
+
+@media only screen and (max-width: 992px){
+	.pictureDiv{
+		display: none;
+	}
+	.modalInputDiv{
+		height: 80vh;
+		width: 80vw;
+		max-width: 600px;
+	 }
+}
+
+/* ------ */
+
+@media only screen and (min-width: 993px){
+	.modalInputDiv{
+		height: 74vh;
+		width: 45vw;
+	 }
+}
+
+/* ----- */
+@media only screen and (max-width:500px){
+	.form__group{
+	
+		min-width: 80%;
+	}
+}
+
+@media only screen and (max-width:400px){
+	.modalCloseButton{
+		position: relative;
+	}
+
+
+}
+
+
+
+
+
+
+
+.modify{
+	background-color: green;
+}
+
+
 
 /* -----------LoadAnimantion------------------ */
 
 .loadCover{
-	position: fixed;
+	/* position: fixed;
 	width: 100vw;
 	height: 100vh;
 	top: 0vh;
 	left: 0vw;
 	background-color: rgba($black1, $alpha: .8);
-	@extend .flexCenter;
+	@extend .flexCenter; */
 	
 	.loadContainer{
 		background-color: red;
 		width: 50vw;
 		height: 50vh;
-		@extend .flexCenter;
+		@extend .flexCenter; 
 	}
 	
 }
@@ -628,7 +746,7 @@ $gray: #9b9b9b;
 /* --------------------Done------------------*/
 
 .sucessCover{
-	@extend .loadCover;
+	 @extend .loadCover; 
 	.sucessContainer{
 		@extend.loadContainer
 	}
