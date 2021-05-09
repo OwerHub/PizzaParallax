@@ -2,19 +2,25 @@ import parallaxPercent from "../utils/parallaxPercent";
 import React, { useState, useEffect } from "react";
 
 function ParallaxHead(props) {
-  let width = window.innerWidth;
-  let height = window.innerHeight;
+  const width = window.innerWidth;
 
-  console.table(props);
+  const [isTranslate, setTranslate] = useState(width * props.multiplyStart);
+
+  useEffect(() => {
+    setTranslate(
+      parallaxPercent(
+        props.offset,
+        props.offsetStart,
+        props.offsetEnd,
+        width * props.multiplyStart,
+        width * props.multiplyEnd
+      ) * props.isPower
+    );
+  }, [props.offset]);
 
   let style1 = {
-    transform: `translate(${parallaxPercent(
-      props.offset,
-      props.offsetStart,
-      props.offsetEnd,
-      width * props.multiplyStart,
-      width * props.multiplyEnd
-    )}px  )`,
+    transform: `translateX(${isTranslate}px  )`,
+    fontSize: `${props.isPower ? "40vw" : "20vw"}`,
   };
 
   return (

@@ -19,6 +19,8 @@ function FirstCont() {
   const [isPageNr, setPageNr] = useState(0);
   const [isPageCollector, setPageCollector] = useState([0, 0, 0, 0]);
 
+  const [isPower, setPower] = useState(true);
+
   useEffect(() => {
     let point1 = isPageCollector[0];
     let point2 = isPageCollector[0] + isPageCollector[1];
@@ -64,24 +66,28 @@ function FirstCont() {
           fakeBackend={fakeBackend}
           setPageCollector={setPageCollector}
           isPageCollector={isPageCollector}
+          isPower={isPower}
         ></PageOpen>
         <PageIntro
           offset={offset}
           fakeBackend={fakeBackend}
           setPageCollector={setPageCollector}
           isPageCollector={isPageCollector}
+          isPower={isPower}
         ></PageIntro>
         <PizzaList
           offset={offset}
           fakeBackend={fakeBackend}
           setPageCollector={setPageCollector}
           isPageCollector={isPageCollector}
+          isPower={isPower}
         ></PizzaList>
         <Tables
           offset={offset}
           fakeBackend={fakeBackend}
           setPageCollector={setPageCollector}
           isPageCollector={isPageCollector}
+          isPower={isPower}
         ></Tables>
       </div>
 

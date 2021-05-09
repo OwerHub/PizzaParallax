@@ -61,6 +61,7 @@ function PizzaList(props) {
         multiplyStart={1}
         multiplyEnd={-3}
         text="Pizzáink"
+        isPower={props.isPower}
       ></ParaHead>
 
       <div className="pizzaCards">

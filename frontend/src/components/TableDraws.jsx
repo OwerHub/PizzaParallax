@@ -33,7 +33,7 @@ function TableDraws(props) {
           avilableCHeck() ? "tableAvilable" : "tableNotAvilable"
         } `}
       >
-        <h4>Table {props.tableNr}</h4>
+        <h4 className="tableName">{props.tableNr}. Asztal</h4>
         <svg
           id="table"
           data-name="Capa 1"

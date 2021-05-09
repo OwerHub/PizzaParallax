@@ -1,7 +1,7 @@
 function SucessAnimation() {
   return (
     <div className="sucessCover">
-      <div className="sucessContainer">SucessFul</div>
+      <div className="sucessContainer"></div>
     </div>
   );
 }

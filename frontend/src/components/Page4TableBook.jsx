@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TableDraws from "./TableDraws";
 import OrderModal from "./OrderModal";
-
+import ParaHead from "./ParallaxHead";
 import getHight from "../utils/getHeight";
 
 function TableBook(props) {
@@ -119,11 +119,25 @@ function TableBook(props) {
 
   return (
     <div className="tableBookContainer">
-      <div className="tableHead">Asztalfoglalás</div>
+      <ParaHead
+        offset={props.offset}
+        offsetStart={
+          props.isPageCollector[1] + props.isPageCollector[2] + window.innerHeight
+        }
+        offsetEnd={
+          props.isPageCollector[1] +
+          props.isPageCollector[2] +
+          window.innerHeight * 2
+        }
+        multiplyStart={1}
+        multiplyEnd={-3}
+        text="Foglalás"
+        isPower={props.isPower}
+      ></ParaHead>
 
       <div className="reserveTimeContainer">
         <div className="dateInputContainer">
-          <div className="headRow ">Choose a Day</div>
+          <div className="headRow ">Válassz napot</div>
           <input
             type="date"
             id="dateInput"
@@ -137,7 +151,7 @@ function TableBook(props) {
         </div>
 
         <div className="startTimeContainer">
-          <div className="headRow">Choose Start Time</div>
+          <div className="headRow">Ekkor gyere</div>
           <select
             name="startTime"
             id="startTimeSelect"
@@ -155,7 +169,7 @@ function TableBook(props) {
         </div>
 
         <div className="endTimeContainer">
-          <div className="headRow">Choose end Time</div>
+          <div className="headRow">Eddig foglalsz</div>
           <select
             name="endTime"
             id="endTimeSelect"

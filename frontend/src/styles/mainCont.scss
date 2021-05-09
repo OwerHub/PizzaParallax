@@ -99,7 +99,7 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 	height: auto;
 	width: 100%;
 	position: absolute;
-	background-color: rgb(27, 27, 27);
+	background-color: rgba($black1, $alpha: .9);
 	color: whitesmoke;
 	display: flex;
 	align-items: center;
@@ -465,6 +465,7 @@ padding-top: 1rem;
 			font-size: 150%;
 		}
 		select,input{
+		
 			background-color: rgba($red2, $alpha: .5);
 			color: white;
 			border: none;
@@ -517,7 +518,12 @@ padding-top: 1rem;
 		margin:1rem;
 		transition:  ease-in-out .2s;
 	
-	
+		.tableName{
+				color: rgba($yellow-brown, $alpha: .7);
+				transform: translateY(35px) scale(1.5);
+				
+				
+		}
 
 		svg{
 			height: 250px;
@@ -551,6 +557,19 @@ padding-top: 1rem;
 				stroke-width: 3;
 				animation: tableAnimate 2s ease-in-out alternate infinite;
 			}
+			.tableName{
+			animation: lasMoment 1s ease-in-out alternate infinite;		
+			}@keyframes lasMoment{
+				0%{
+					color:  rgba(#ab8d5f, $alpha: 0.8) #ab8d5f;
+					transform: translateY(35px) scale(1.5);
+				}
+				100%{
+					color:  rgba(#fdedd5, $alpha: .8);
+					transform: translateY(33px) scale(1.6);
+				}
+			}
+
 			@keyframes tableAnimate {
 				0%{
 					fill: rgba($green3, $alpha: .9);
@@ -584,10 +603,9 @@ padding-top: 1rem;
 /*---inputfiels ----*/
 
 
-$primary: #11998e;
-$secondary: #38ef7d;
-$white: #fff;
-$gray: #9b9b9b;
+
+
+
 .form__group {
 
 
@@ -617,10 +635,10 @@ $gray: #9b9b9b;
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid whitesmoke;
+  border-bottom: 2px solid  $green1;
   outline: 0;
   font-size: 1.3rem;
-  color: $white;
+  color: white;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -642,7 +660,7 @@ $gray: #9b9b9b;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: whitesmoke;
+  color: $green1;
 }
 
 .form__field:focus {
@@ -678,7 +696,7 @@ $gray: #9b9b9b;
 	left: 0vw;
 	background-color: rgba($black1, $alpha: .8);
 	@extend .flexCenter;
-	z-index: 60;
+	z-index: 100;
 
 }
 
@@ -710,9 +728,9 @@ $gray: #9b9b9b;
 		}
 	}
 	.modalInputDiv{
-		background-color: $green1;
+		background-color: rgba(#69020b, $alpha: .8);
 		position: relative;
-		
+		color: rgb(235, 194, 62);
 		/* height: 45vw;
 		width: 45vw; */
 		padding: 1vw;
@@ -766,11 +784,14 @@ $gray: #9b9b9b;
 			background: none;
 			font-size: 150%;
 			font-weight: 400;
-			color: blue;
+			color: $green1;
 			&:enabled{
 				cursor: pointer;
 				box-shadow: 2px 2px 2px 0px black;
-
+					&:hover{
+						border-top: 2px solid rgba($green1, $alpha: .5);
+						border-left: 2px solid rgba($green1, $alpha: .5);
+					}
 			}
 			&:disabled{
 				transform: translate(-2px, -2px);
@@ -783,6 +804,7 @@ $gray: #9b9b9b;
 }
 
 .modalCloseButton{
+	
 	position: absolute;
 	top: 1.3vh;
 	right: 2.5vw;
@@ -791,12 +813,14 @@ $gray: #9b9b9b;
 	background: none;
 	border:none;
 	font-size: 250%;
-	text-shadow: 0px 0px 1px white;
-	font-weight: 800;
-	color: transparent;
+	
+	font-weight: 600;
+	font-family: 'Pangolin', cursive;
+	color: white;
 
 	cursor: pointer;
 	transition: color .5s;
+	transition: 0.5s;
 	@include media("<=500px") {
 		font-weight: 400;
 		position: relative;
@@ -806,7 +830,7 @@ $gray: #9b9b9b;
 }
 
 &:hover{
-	color: red;
+	transform: scale(1.2);
 }
 }
 
@@ -933,7 +957,7 @@ $gray: #9b9b9b;
 	@extend .flexCenter; */
 	
 	.loadContainer{
-		background-color: red;
+	
 		width: 50vw;
 		height: 50vh;
 		@extend .flexCenter; 
@@ -941,13 +965,175 @@ $gray: #9b9b9b;
 	
 }
 
+
+/* ----------------másolt töltőképernyő---------- */
+
+.loadingAnimWrapper{
+	transform: scale(0.3);
+	
+	//Concepts from https://stackoverflow.com/questions/12813573/position-icons-into-circle
+//https://codepen.io/thebabydino/pen/wzZKGX
+$fs-pizza: 5em;
+$n-pizza: 12;
+$ba: 360deg/$n-pizza; // base angle
+$d-ring: 8.25em; // ring diameter
+$t: 2s; // animation duration
+$bw: .5*$fs-pizza; // ring thickness
+$tx: .5*($d-ring - $bw);
+
+
+ 
+
+$n-pizza-center: 1;
+$ba-center: 360deg/$n-pizza-center; // base angle
+
+.rotating-pizza-center {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  animation: rp-center .5*$n-pizza*$t linear infinite;
+  //border: dashed 1px;
+  //outline: 5px dotted green;
+}
+
+@keyframes rp-center { 0% { transform: rotate(-6turn); } }
+
+
+$n-pizza-inner: 4;
+$ba-inner: 360deg/$n-pizza-inner; // base angle
+
+.rotating-pizza-inner {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  animation: rp-inner .5*$n-pizza*$t linear infinite;
+  //border: dashed 1px;
+  //outline: 5px dotted green;
+}
+
+@keyframes rp-inner { 0% { transform: rotate(1turn); } }
+
+
+.rotating-pizza {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  animation: rp .5*$n-pizza*$t linear infinite;
+  //border: dashed 1px;
+  //outline: 5px dotted green;
+  
+  // &:after {
+	// 	box-sizing: border-box;
+	// 	margin: -.5*$d-ring;
+	// 	border: solid $bw $c;
+	// 	width: $d-ring; height: $d-ring;
+	// 	box-shadow: $sh, inset $sh;
+	// 	content: '';
+	// }
+}
+
+@keyframes rp { 0% { transform: rotate(-2turn); } }
+
+$n-pizza-outer: 20;
+$ba-outer: 360deg/$n-pizza-outer; // base angle
+
+.rotating-pizza-outer {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  animation: rp-outer .5*$n-pizza-outer*$t linear infinite;
+  //border: dashed 1px;
+  //outline: 5px dotted green;
+}
+
+@keyframes rp-outer { 0% { transform: rotate(1.5turn); } }
+
+.pizza {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  font-size: 1px;
+
+  @for $i from 0 to $n-pizza {
+    &:nth-child(#{$i + 1}) {
+      transform: rotate($i*$ba)
+        				translate($tx + 220em) scale(100);
+    }
+  }
+}
+
+.pizza-center {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  font-size: 1px;
+
+  @for $i from 0 to $n-pizza-center {
+    &:nth-child(#{$i + 1}) {
+      transform: rotate($i*$ba-center)
+        				scale(100);
+    }
+  }
+}
+
+.pizza-inner {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  font-size: 1px;
+
+  @for $i from 0 to $n-pizza-inner {
+    &:nth-child(#{$i + 1}) {
+      transform: rotate($i*$ba-inner)
+        				translate($tx + 120em) scale(100);
+    }
+  }
+}
+
+.pizza-outer {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  font-size: 1px;
+
+  @for $i from 0 to 20 {
+    &:nth-child(#{$i + 1}) {
+      transform: rotate($i*$ba-outer)
+        				translate($tx + 320em) scale(100);
+    }
+  }
+}
+}
+
 /* --------------------Done------------------*/
 
 .sucessCover{
 	 @extend .loadCover; 
-	.sucessContainer{
-		@extend.loadContainer
+	 .sucessContainer{
+		 background-image: url("../img/Affirmative.jpg");
+		 background-size: contain;
+		 background-repeat: no-repeat;
+	
+		 @extend.loadContainer;
+		 animation: byeAnim 3s ease-in-out alternate  infinite;
 	}
+	@keyframes byeAnim {
+		0%{
+			transform: scale(1);
+			filter: blur(0px);
+		}
+		65%{
+			transform: scale(1);
+			filter: blur(0px);
+		}
+		100%{
+			transform: scale(1.2);
+			filter: blur(5px);
+		}
+
+	}
+
+
 }
 
 
@@ -960,9 +1146,7 @@ $gray: #9b9b9b;
 		.pHeadText1{
 		    font-family: 'Racing Sans One', cursive; 
 			 font-weight:800;
-			font-size: 40vw;
-			color: rgba(white, $alpha: .1);
-
+			color: rgba(white, $alpha: 0.2);
 		 }
 	}
 }
