@@ -5,6 +5,7 @@ import PageOpen from "./Page1Open";
 import PageIntro from "./Page2Introduct";
 import PizzaList from "./Page3PizzaList";
 import Tables from "./Page4TableBook";
+import PageHead from "./Head";
 
 import parallaxPercent from "../utils/parallaxPercent";
 
@@ -54,7 +55,8 @@ function FirstCont() {
   return (
     <div>
       <div className="main-background"></div>
-      <div className="mainHead">pagenr is {isPageNr}</div>
+
+      <PageHead number={isPageNr}></PageHead>
       <div className="scrolledDiv">
         <PageOpen
           offset={offset}
