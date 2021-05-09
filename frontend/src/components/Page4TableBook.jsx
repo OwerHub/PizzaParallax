@@ -121,7 +121,7 @@ function TableBook(props) {
 
       <div className="reserveTimeContainer">
         <div className="dateInputContainer">
-          <div className="headRow">Choose a Day</div>
+          <div className="headRow ">Choose a Day</div>
           <input
             type="date"
             id="dateInput"
