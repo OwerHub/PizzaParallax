@@ -63,7 +63,7 @@ function PageOpen(props) {
 
   useEffect(() => {
     let arrayTemp = props.isPageCollector;
-    arrayTemp[0] = getHight(".backgroundPic");
+    arrayTemp[0] = getHight(".backgroundPic") * 0.5;
     props.setPageCollector(arrayTemp);
   }, []);
 

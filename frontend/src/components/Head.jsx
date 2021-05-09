@@ -4,7 +4,7 @@ let headers = ["Üdvözlünk", "Rólunk", "Pizzáink", "Asztalfoglalás"];
 
 function PageHead(props) {
   let bannerStyle = {
-    transform: `translateX(-${(props.number - 1) * 10}vw)`,
+    transform: `translateX(-${(props.number - 1) * 250}px)`,
   };
 
   return (

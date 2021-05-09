@@ -23,9 +23,6 @@ function FirstCont() {
     let point1 = isPageCollector[0];
     let point2 = isPageCollector[0] + isPageCollector[1];
     let point3 = isPageCollector[0] + isPageCollector[1] + isPageCollector[2];
-    /* 
-    console.log(point1, point2, point3);
-    console.log(isPageCollector[2]); */
 
     if (offset < isPageCollector[0]) {
       setPageNr(1);
@@ -41,15 +38,16 @@ function FirstCont() {
     }
   }, [offset]);
 
+  function handleScroll() {
+    setOffset(window.pageYOffset.toFixed(2));
+  }
   useEffect(() => {
-    function handleScroll() {
-      setOffset(window.pageYOffset.toFixed(2));
-    }
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   /*  console.log("isPageCollector is" + isPageCollector); */
   /* console.log("offset" + offset); */
   return (

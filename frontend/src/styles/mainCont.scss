@@ -61,21 +61,28 @@ body{
 	z-index: 55;
 	color: white;
 	@extend .flexCenter;
+	
 	.headCenter{
-		height: 80%;
-		width: 10vw;
-		
-		overflow-x: hidden;
+		margin: 00 0 0;
+		height: 6.5vh;
+		width: 250px;
+	
+		overflow: hidden;
 		
 		.scrollBanner{
 			display: flex;
 			transition: ease-in-out .5s;
+		
+ 			div{
+				height: 6vh;
 			
-			div{
-			
-				min-width: 10vw;
+				min-width: 250px;
+				font-size: 150%;
+				text-align: center;
+				padding: 5px 0 0 0 ;
+				font-weight: bolder;
 				
-				margin: 1px;
+				
 			}
 		}
 	}
@@ -113,15 +120,17 @@ body{
 	} */
 	.pizzaPic{
 	
-		height: 100vh;
+		height:	100vh;
 		width: 99vw;
+		max-width: 90;
 
 
 /* 		position: absolute;  */
 		background-image: url("../img/pizza-main.png"); 
-		background-size: 90%;
+	
 		background-repeat: no-repeat;
 		background-position: center;
+		background-size: contain;
 		z-index: 3;
 		top:0
 	}
