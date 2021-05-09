@@ -12,7 +12,7 @@ body {
   /* 	position: relative; */
 }
 
-.flexCenter, .loadCover .loadContainer, .sucessCover .loadContainer, .sucessCover .sucessContainer, .loadCover, .sucessCover {
+.flexCenter, .loadCover .loadContainer, .sucessCover .loadContainer, .sucessCover .sucessContainer, .loadCover, .sucessCover, .mainHead {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +46,19 @@ body {
   background-color: #010400;
   z-index: 55;
   color: white;
+}
+.mainHead .headCenter {
+  height: 80%;
+  width: 10vw;
+  overflow-x: hidden;
+}
+.mainHead .headCenter .scrollBanner {
+  display: flex;
+  transition: ease-in-out 0.5s;
+}
+.mainHead .headCenter .scrollBanner div {
+  min-width: 10vw;
+  margin: 1px;
 }
 
 .scrolledDiv {
