@@ -1,12 +1,20 @@
 /* import-ok*/
 
-/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&display=swap');
 @import "./include";
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&display=swap'); */
 
-/* font-family: 'Lobster', cursive;
-font-family: 'New Tegomin', serif;
-font-family: 'Noto Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bowlby+One+SC&family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&family=Racing+Sans+One&display=swap');
+
+
+
+/*     font-family: 'Bowlby One', cursive;
+    font-family: 'Bowlby One SC', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Pangolin', cursive;
+    font-family: 'Racing Sans One', cursive; */
 
 $red1 : #770d15;
 $red2 : #b4000f;
@@ -132,7 +140,7 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 		color: rgba(whitesmoke, $alpha: .5);
 		cursor: pointer;
 		img{
-			transform: translateY(5px) sca;
+			transform: translateY(5px) ;
 			z-index: 100;
 		
 		}
@@ -311,6 +319,7 @@ $breakpoints: (phone: 20em, tablet: 48em, desktop: 64em , );
 	align-items: center;
 	justify-content: center;
 /* 	overflow: hidden; */
+
 
 }
 .descriptionContainer{
@@ -938,5 +947,22 @@ $gray: #9b9b9b;
 	 @extend .loadCover; 
 	.sucessContainer{
 		@extend.loadContainer
+	}
+}
+
+
+/* -----------------ParallaxHead-------------------- */
+
+.parallaxHeadCont{
+	
+	.pHeadInnerDiv{
+		
+		.pHeadText1{
+		    font-family: 'Racing Sans One', cursive; 
+			 font-weight:800;
+			font-size: 40vw;
+			color: rgba(white, $alpha: .1);
+
+		 }
 	}
 }

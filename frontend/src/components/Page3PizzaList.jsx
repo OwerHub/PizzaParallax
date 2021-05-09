@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { pizzaList } from "../temp/tempdatas";
 import PizzaCard from "./PizzaCard";
-
+import ParaHead from "./ParallaxHead";
 import getHight from "../utils/getHeight";
 
 function PizzaList(props) {
@@ -43,13 +43,26 @@ function PizzaList(props) {
   }, [isLoading, isContLoad]);
 
   function loadFunc() {
-    console.log("onload");
     setContLoad(!isContLoad);
   }
 
   return (
     <div className="pizzaListContainer" onLoad={() => loadFunc()}>
-      <div className="pizzaListHead">Pizzáink</div>
+      {/* <div className="pizzaListHead">Pizzáink</div> */}
+
+      <ParaHead
+        offset={props.offset}
+        offsetStart={props.isPageCollector[0] + props.isPageCollector[1]}
+        offsetEnd={
+          props.isPageCollector[0] +
+          props.isPageCollector[1] +
+          window.innerHeight * 2
+        }
+        multiplyStart={1}
+        multiplyEnd={-3}
+        text="Pizzáink"
+      ></ParaHead>
+
       <div className="pizzaCards">
         {Array.isArray(isPizzaList) &&
           isPizzaList.map((data, iterator) => (

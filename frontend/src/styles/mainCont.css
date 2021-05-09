@@ -1,10 +1,15 @@
 @charset "UTF-8";
 /* import-ok*/
 /* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&display=swap'); */
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&display=swap");
-/* font-family: 'Lobster', cursive;
-font-family: 'New Tegomin', serif;
-font-family: 'Noto Sans', sans-serif; */
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bowlby+One+SC&family=Lobster&family=New+Tegomin&family=Noto+Sans:wght@400;700&family=Pangolin&family=Racing+Sans+One&display=swap");
+/*     font-family: 'Bowlby One', cursive;
+    font-family: 'Bowlby One SC', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Pangolin', cursive;
+    font-family: 'Racing Sans One', cursive; */
 * {
   margin: 0;
   padding: 0;
@@ -108,7 +113,7 @@ html {
   cursor: pointer;
 }
 .mainHead .contactButton img, .mainHead .hideButton img {
-  transform: translateY(5px) sca;
+  transform: translateY(5px);
   z-index: 100;
 }
 @media (max-width: 609px) {
@@ -783,3 +788,10 @@ html {
 }
 
 /* --------------------Done------------------*/
+/* -----------------ParallaxHead-------------------- */
+.parallaxHeadCont .pHeadInnerDiv .pHeadText1 {
+  font-family: "Racing Sans One", cursive;
+  font-weight: 800;
+  font-size: 40vw;
+  color: rgba(255, 255, 255, 0.1);
+}

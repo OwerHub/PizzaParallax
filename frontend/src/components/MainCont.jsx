@@ -38,6 +38,9 @@ function FirstCont() {
     }
   }, [offset]);
 
+  /*  console.log(`offset is : ${offset}`);
+  console.table(isPageCollector);
+  console.log("height" + window.innerHeight); */
   function handleScroll() {
     setOffset(window.pageYOffset.toFixed(2));
   }
@@ -69,6 +72,7 @@ function FirstCont() {
           isPageCollector={isPageCollector}
         ></PageIntro>
         <PizzaList
+          offset={offset}
           fakeBackend={fakeBackend}
           setPageCollector={setPageCollector}
           isPageCollector={isPageCollector}

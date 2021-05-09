@@ -13,6 +13,7 @@ function PageIntro(props) {
   let maxScroll = window.innerHeight * 0.8;
 
   const [isTextHeight, setTextHeight] = useState(100);
+  const [isFontSize, setFontSize] = useState(130);
 
   let styleIntroText = {
     transform: `scale(${parallaxPercent(
@@ -49,10 +50,15 @@ function PageIntro(props) {
     let calcedHeight = 100;
     if (width < 600) {
       let overflw = 600 - width;
-      calcedHeight = calcedHeight + overflw * 0.45;
+      calcedHeight = calcedHeight * 1.2 + overflw * 0.15;
     }
-
     setTextHeight(calcedHeight);
+
+    if (width > 1100) {
+      let sizeOver = (width - 900) / 1000 + 1;
+      console.log("sizeOver" + sizeOver);
+      setFontSize(isFontSize * sizeOver);
+    }
   }, []);
 
   const textContainerStyle = {
@@ -60,7 +66,7 @@ function PageIntro(props) {
   };
 
   const paragraphStyle = {
-    fontSize: "130%",
+    fontSize: `${isFontSize}%`,
     width: "80%",
   };
 
